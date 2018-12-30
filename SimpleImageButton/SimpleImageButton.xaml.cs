@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace SimpleImageButton
 {
-    public partial class SimpleImageButton : Frame, ITouchAndPressEffectConsumer
+    public partial class SimpleImageButton : ContentView, ITouchAndPressEffectConsumer
     {
         public static readonly string NormalState = "normal";
         public static readonly string PressedState = "pressed";

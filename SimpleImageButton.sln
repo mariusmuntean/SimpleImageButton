@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Sample", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.iOS", "SimpleImageButton.iOS\SimpleImageButton.iOS.csproj", "{C358FE13-308E-4317-AFD4-812088FC1A93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Droid", "SimpleImageButton.Droid\SimpleImageButton.Droid.csproj", "{BFC8A443-30D4-4DA2-A568-6E865EB935AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{C358FE13-308E-4317-AFD4-812088FC1A93}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{C358FE13-308E-4317-AFD4-812088FC1A93}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{C358FE13-308E-4317-AFD4-812088FC1A93}.Release|iPhone.Build.0 = Release|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D975ED0B-DD32-4428-B335-83EF3FD3C35B} = {76A01D7E-9530-4218-BCBC-96AB1BAB1360}

@@ -11,7 +11,7 @@
                 <On Platform = "iOS"
                     Value    = "AppIcon" />
                 <On Platform = "Android"
-                    Value    = "icon" />
+                    Value    = "icon.png" />
             </OnPlatform>
         </ResourceDictionary>
     </ContentPage.Resources>
