@@ -23,10 +23,10 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row = "0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <simpleImageButton:SimpleImageButton Grid.Column     = "0"
                                                  VerticalOptions = "Center"

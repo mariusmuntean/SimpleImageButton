@@ -126,6 +126,10 @@
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SimpleImageButton.iOS\SimpleImageButton.iOS.csproj">
+      <Project>{c358fe13-308e-4317-afd4-812088fc1a93}</Project>
+      <Name>SimpleImageButton.iOS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj">
       <Project>{695F8122-EF0E-4663-BE70-427CFF8B2DC0}</Project>
       <Name>SimpleImageButton.Sample</Name>

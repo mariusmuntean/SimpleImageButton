@@ -1,103 +1,139 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Frame xmlns            = "http://xamarin.com/schemas/2014/forms"
-       xmlns:x           = "http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:models      = "clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
-       x:Class           = "SimpleImageButton.SimpleImageButton"
-       HorizontalOptions = "Start"
-       VerticalOptions   = "Start"
-       x:Name            = "ME"
-       BackgroundColor   = "LightGray"
-       Padding           = "0"
-       CornerRadius      = "15"
-       IsClippedToBounds = "True">
+<?xml
+    version = "1.0"
+    encoding = "UTF-8" ?>
+
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:models="clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
+       xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
+       xmlns:effects="clr-namespace:SimpleImageButton.Effects;assembly=SimpleImageButton"
+       x:Class="SimpleImageButton.SimpleImageButton"
+       HorizontalOptions="Start"
+       VerticalOptions="Start"
+       x:Name="ME"
+       BackgroundColor="LightGray"
+       Padding="0"
+       CornerRadius="15"
+       IsClippedToBounds="True">
+
+    <Frame.Effects>
+        <effects:TouchAndPressEffect />
+    </Frame.Effects>
+
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup Name="CommonButtonStates">
+            <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.NormalState}">
+                <VisualState.Setters>
+                    <Setter Property="View.Scale" Value="1.0" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.PressedState}">
+                <VisualState.Setters>
+                    <Setter Property="View.Scale" Value="0.85" />
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.DisabledState}">
+                <VisualState.Setters>
+                    <Setter Property="View.Scale" Value="1.0" />
+                </VisualState.Setters>
+            </VisualState>
+
+            <VisualState Name="Focused">
+                <VisualState.Setters>
+                    <Setter Property="View.Scale" Value="0.85" />
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
     <!-- Main layout - a 3x3 grid -->
-    <Grid BindingContext = "{x:Reference ME}"
-          Padding        = "0"
-          Margin         = "0"
-          RowSpacing     = "0"
-          ColumnSpacing  = "0">
+    <Grid BindingContext="{x:Reference ME}"
+          Padding="0"
+          Margin="0"
+          RowSpacing="0"
+          ColumnSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height = "Auto" />
-            <RowDefinition Height = "Auto" />
-            <RowDefinition Height = "Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width = "Auto" />
-            <ColumnDefinition Width = "Auto" />
-            <ColumnDefinition Width = "Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <!-- the image is in the middle -->
-        <Image Grid.Row          = "1"
-               Grid.Column       = "1"
-               Margin            = "0"
-               VerticalOptions   = "Center"
-               HorizontalOptions = "Center"
-               Aspect            = "AspectFit"
-               HeightRequest     = "55"
-               WidthRequest      = "55"
-               Source            = "{Binding ImageSource}" />
+        <Image Grid.Row="1"
+               Grid.Column="1"
+               Margin="0"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Aspect="AspectFit"
+               HeightRequest="55"
+               WidthRequest="55"
+               Source="{Binding ImageSource}" />
         <!-- the label is below the image, by default -->
-        <Label Grid.Row          = "2"
-               Grid.Column       = "1"
-               Text              = "{Binding LabelText}"
-               HorizontalOptions = "Center"
-               VerticalOptions   = "Start">
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               Text="{Binding LabelText}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start">
             <Label.Triggers>
-                <DataTrigger Binding    = "{Binding LabelLocation}"
-                             Value      = "{x:Static models:LabelLocation.Bottom}"
-                             TargetType = "Label">
-                    <Setter Property = "Grid.Row"
-                            Value    = "2" />
-                    <Setter Property = "Grid.Column"
-                            Value    = "1" />
-                    <Setter Property = "HorizontalOptions"
-                            Value    = "Center" />
-                    <Setter Property = "VerticalOptions"
-                            Value    = "Start" />
-                    <Setter Property = "Margin"
-                            Value    = "5,0,5,5" />
+                <DataTrigger Binding="{Binding LabelLocation}"
+                             Value="{x:Static models:LabelLocation.Bottom}"
+                             TargetType="Label">
+                    <Setter Property="Grid.Row"
+                            Value="2" />
+                    <Setter Property="Grid.Column"
+                            Value="1" />
+                    <Setter Property="HorizontalOptions"
+                            Value="Center" />
+                    <Setter Property="VerticalOptions"
+                            Value="Start" />
+                    <Setter Property="Margin"
+                            Value="5,0,5,5" />
                 </DataTrigger>
-                <DataTrigger Binding    = "{Binding LabelLocation}"
-                             Value      = "{x:Static models:LabelLocation.Right}"
-                             TargetType = "Label">
-                    <Setter Property = "Grid.Row"
-                            Value    = "1" />
-                    <Setter Property = "Grid.Column"
-                            Value    = "2" />
-                    <Setter Property = "HorizontalOptions"
-                            Value    = "Start" />
-                    <Setter Property = "VerticalOptions"
-                            Value    = "Center" />
-                    <Setter Property = "Margin"
-                            Value    = "0,5,5,5" />
+                <DataTrigger Binding="{Binding LabelLocation}"
+                             Value="{x:Static models:LabelLocation.Right}"
+                             TargetType="Label">
+                    <Setter Property="Grid.Row"
+                            Value="1" />
+                    <Setter Property="Grid.Column"
+                            Value="2" />
+                    <Setter Property="HorizontalOptions"
+                            Value="Start" />
+                    <Setter Property="VerticalOptions"
+                            Value="Center" />
+                    <Setter Property="Margin"
+                            Value="0,5,5,5" />
                 </DataTrigger>
-                <DataTrigger Binding    = "{Binding LabelLocation}"
-                             Value      = "{x:Static models:LabelLocation.Top}"
-                             TargetType = "Label">
-                    <Setter Property = "Grid.Row"
-                            Value    = "0" />
-                    <Setter Property = "Grid.Column"
-                            Value    = "1" />
-                    <Setter Property = "HorizontalOptions"
-                            Value    = "Center" />
-                    <Setter Property = "VerticalOptions"
-                            Value    = "End" />
-                    <Setter Property = "Margin"
-                            Value    = "5,5,5,0" />
+                <DataTrigger Binding="{Binding LabelLocation}"
+                             Value="{x:Static models:LabelLocation.Top}"
+                             TargetType="Label">
+                    <Setter Property="Grid.Row"
+                            Value="0" />
+                    <Setter Property="Grid.Column"
+                            Value="1" />
+                    <Setter Property="HorizontalOptions"
+                            Value="Center" />
+                    <Setter Property="VerticalOptions"
+                            Value="End" />
+                    <Setter Property="Margin"
+                            Value="5,5,5,0" />
                 </DataTrigger>
-                <DataTrigger Binding    = "{Binding LabelLocation}"
-                             Value      = "{x:Static models:LabelLocation.Left}"
-                             TargetType = "Label">
-                    <Setter Property = "Grid.Row"
-                            Value    = "1" />
-                    <Setter Property = "Grid.Column"
-                            Value    = "0" />
-                    <Setter Property = "HorizontalOptions"
-                            Value    = "End" />
-                    <Setter Property = "VerticalOptions"
-                            Value    = "Center" />
-                    <Setter Property = "Margin"
-                            Value    = "5,5,0,5" />
+                <DataTrigger Binding="{Binding LabelLocation}"
+                             Value="{x:Static models:LabelLocation.Left}"
+                             TargetType="Label">
+                    <Setter Property="Grid.Row"
+                            Value="1" />
+                    <Setter Property="Grid.Column"
+                            Value="0" />
+                    <Setter Property="HorizontalOptions"
+                            Value="End" />
+                    <Setter Property="VerticalOptions"
+                            Value="Center" />
+                    <Setter Property="Margin"
+                            Value="5,5,0,5" />
                 </DataTrigger>
             </Label.Triggers>
         </Label>
