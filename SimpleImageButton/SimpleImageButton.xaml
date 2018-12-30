@@ -7,8 +7,6 @@
              x:Class                 = "SimpleImageButton.SimpleImageButton"
              HorizontalOptions       = "Start"
              VerticalOptions         = "Start"
-             Margin                  = "0"
-             Padding                 = "0"
              x:Name                  = "ME"
              BackgroundColor         = "Transparent">
     <ContentView.Effects>
@@ -34,16 +32,10 @@
                             Value    = "1.0" />
                 </VisualState.Setters>
             </VisualState>
-            <VisualState Name = "Focused">
-                <VisualState.Setters>
-                    <Setter Property = "View.Scale"
-                            Value    = "0.85" />
-                </VisualState.Setters>
-            </VisualState>
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
     <Frame CornerRadius      = "15"
-           BackgroundColor         = "#E5E5E5"
+           BackgroundColor   = "#E5E5E5"
            IsClippedToBounds = "True"
            HorizontalOptions = "Start"
            VerticalOptions   = "Start"
