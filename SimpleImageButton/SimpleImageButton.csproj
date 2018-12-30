@@ -11,4 +11,18 @@
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Styles.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="SimpleImageButtonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator></Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="SimpleImageButtonResources.xaml.cs">
+      <DependentUpon>SimpleImageButtonResources.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

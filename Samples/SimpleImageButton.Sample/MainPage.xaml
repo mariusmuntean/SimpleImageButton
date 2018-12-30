@@ -1,61 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns                  = "http://xamarin.com/schemas/2014/forms"
-             xmlns:x                 = "http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local             = "clr-namespace:SimpleImageButton.Sample"
-             xmlns:simpleImageButton = "clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
-             x:Class                 = "SimpleImageButton.Sample.MainPage">
+<?xml
+    version = "1.0"
+    encoding = "utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SimpleImageButton.Sample"
+             xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
+             x:Class="SimpleImageButton.Sample.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <OnPlatform x:Key           = "XamarinImage"
-                        x:TypeArguments = "ImageSource">
-                <On Platform = "iOS"
-                    Value    = "AppIcon" />
-                <On Platform = "Android"
-                    Value    = "icon.png" />
+            <ResourceDictionary.MergedDictionaries>
+                <simpleImageButton:SimpleImageButtonResources />
+            </ResourceDictionary.MergedDictionaries>
+
+            <OnPlatform x:Key="XamarinImage"
+                        x:TypeArguments="ImageSource">
+                <On Platform="iOS"
+                    Value="AppIcon" />
+                <On Platform="Android"
+                    Value="icon.png" />
             </OnPlatform>
+            <Style x:Key="AdvancedLabelStyle"
+                   TargetType="Label"
+                   BasedOn="SimpleImageButtonLabelStyle">
+                <Setter Property="BackgroundColor" Value="Teal" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid VerticalOptions   = "Center"
-          HorizontalOptions = "CenterAndExpand">
+    <Grid VerticalOptions="Center"
+          HorizontalOptions="CenterAndExpand">
         <Grid.RowDefinitions>
-            <RowDefinition Height = "Auto" />
-            <RowDefinition Height = "Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row = "0">
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <simpleImageButton:SimpleImageButton Grid.Column     = "0"
-                                                 VerticalOptions = "Center"
-                                                 LabelText       = "Hi!"
-                                                 LabelLocation   = "Left"
-                                                 ImageSource     = "{x:StaticResource XamarinImage}" />
-            <simpleImageButton:SimpleImageButton Grid.Column     = "1"
-                                                 VerticalOptions = "Center"
-                                                 LabelText       = "Hi!"
-                                                 LabelLocation   = "Top"
-                                                 ImageSource     = "{x:StaticResource XamarinImage}" />
-            <simpleImageButton:SimpleImageButton Grid.Column     = "2"
-                                                 VerticalOptions = "Center"
-                                                 LabelText       = "Hi!"
-                                                 LabelLocation   = "Right"
-                                                 ImageSource     = "{x:StaticResource XamarinImage}" />
-            <simpleImageButton:SimpleImageButton Grid.Column     = "3"
-                                                 VerticalOptions = "Center"
-                                                 LabelText       = "Hi!"
-                                                 LabelLocation   = "Bottom"
-                                                 ImageSource     = "{x:StaticResource XamarinImage}" />
+            <simpleImageButton:SimpleImageButton Grid.Column="0"
+                                                 VerticalOptions="Center"
+                                                 LabelText="Hi!"
+                                                 LabelLocation="Left"
+                                                 ImageSource="{x:StaticResource XamarinImage}">
+                <simpleImageButton:SimpleImageButton.LabelStyle>
+                    <Style TargetType="Label">
+                        <Setter Property="BackgroundColor"
+                                Value="Red" />
+                    </Style>
+                </simpleImageButton:SimpleImageButton.LabelStyle>
+            </simpleImageButton:SimpleImageButton>
+            <simpleImageButton:SimpleImageButton Grid.Column="1"
+                                                 VerticalOptions="Center"
+                                                 LabelText="Hi!"
+                                                 LabelLocation="Top"
+                                                 LabelStyle="{StaticResource AdvancedLabelStyle}"
+                                                 ImageSource="{x:StaticResource XamarinImage}" />
+            <simpleImageButton:SimpleImageButton Grid.Column="2"
+                                                 VerticalOptions="Center"
+                                                 LabelText="Hi!"
+                                                 LabelLocation="Right"
+                                                 ImageSource="{x:StaticResource XamarinImage}" />
+            <simpleImageButton:SimpleImageButton Grid.Column="3"
+                                                 VerticalOptions="Center"
+                                                 LabelText="Hi!"
+                                                 LabelLocation="Bottom"
+                                                 ImageSource="{x:StaticResource XamarinImage}" />
         </Grid>
-        <ImageButton Grid.Row = "1">
+        <ImageButton Grid.Row="1">
             <ImageButton.Source>
-                <OnPlatform x:TypeArguments = "ImageSource">
-                    <On Platform = "iOS"
-                        Value    = "AppIcon" />
-                    <On Platform = "Android"
-                        Value    = "icon" />
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS"
+                        Value="AppIcon" />
+                    <On Platform="Android"
+                        Value="icon" />
                 </OnPlatform>
             </ImageButton.Source>
         </ImageButton>

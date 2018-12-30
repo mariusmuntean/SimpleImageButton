@@ -66,5 +66,29 @@ namespace SimpleImageButton
             get => (ImageSource) GetValue(ImageSourceProperty);
             set => SetValue(ImageSourceProperty, value);
         }
+
+
+        public static readonly BindableProperty LabelStyleProperty = BindableProperty.Create(
+            "LabelStyle"
+            , typeof(Style),
+            typeof(SimpleImageButton),
+            null,
+            BindingMode.OneWay,
+            propertyChanged: OnLabelStyleChanged
+        );
+
+        private static void OnLabelStyleChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            if (bindable is SimpleImageButton simpleImageButton)
+            {
+                simpleImageButton.ButtonLabel.Style = (Style) newvalue;
+            }
+        }
+
+        public Style LabelStyle
+        {
+            get => (Style) GetValue(LabelStyleProperty);
+            set => SetValue(LabelStyleProperty, value);
+        }
     }
 }
