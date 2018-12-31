@@ -12,9 +12,17 @@
              VerticalOptions="Start"
              x:Name="ME"
              BackgroundColor="Transparent">
+    
+    <ContentView.Resources>
+        <ResourceDictionary Source="SimpleImageButtonResources.xaml" />
+    </ContentView.Resources>
+    
+    <!-- This ensures the custom control receives touch events -->
     <ContentView.Effects>
         <effects:TouchAndPressEffect />
     </ContentView.Effects>
+    
+    <!-- Visually signal that the button's state has changed -->
     <VisualStateManager.VisualStateGroups>
         <VisualStateGroup Name="CommonButtonStates">
             <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.NormalState}">
@@ -38,10 +46,6 @@
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
 
-    <ContentView.Resources>
-        <ResourceDictionary Source="SimpleImageButtonResources.xaml" />
-    </ContentView.Resources>
-
     <!-- Layout starts here -->
     <Frame CornerRadius="15"
            BackgroundColor="#E5E5E5"
@@ -49,6 +53,7 @@
            HorizontalOptions="Start"
            VerticalOptions="Start"
            Padding="0">
+        
         <!-- Main layout - a 3x3 grid -->
         <Grid BindingContext="{x:Reference ME}"
               Padding="0"
