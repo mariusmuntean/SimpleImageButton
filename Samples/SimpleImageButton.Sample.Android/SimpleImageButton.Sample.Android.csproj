@@ -92,13 +92,13 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\SimpleImageButton.Droid\SimpleImageButton.Droid.csproj">
+      <Project>{bfc8a443-30d4-4da2-a568-6e865eb935aa}</Project>
+      <Name>SimpleImageButton.Droid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj">
       <Project>{695F8122-EF0E-4663-BE70-427CFF8B2DC0}</Project>
       <Name>SimpleImageButton.Sample</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SimpleImageButton.Droid\SimpleImageButton.Droid.csproj">
-      <Project>{BFC8A443-30D4-4DA2-A568-6E865EB935AA}</Project>
-      <Name>SimpleImageButton.Droid</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -15,6 +15,6 @@
     <PackageReference Include="LiveXAML" Version="2.1.58" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SimpleImageButton\SimpleImageButton.csproj" />
+    <ProjectReference Include="..\..\src\SimpleImageButton\SimpleImageButton.csproj" />
   </ItemGroup>
 </Project>

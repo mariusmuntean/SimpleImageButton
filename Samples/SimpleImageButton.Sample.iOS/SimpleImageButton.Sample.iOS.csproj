@@ -126,7 +126,7 @@
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SimpleImageButton.iOS\SimpleImageButton.iOS.csproj">
+    <ProjectReference Include="..\..\src\SimpleImageButton.iOS\SimpleImageButton.iOS.csproj">
       <Project>{c358fe13-308e-4317-afd4-812088fc1a93}</Project>
       <Name>SimpleImageButton.iOS</Name>
     </ProjectReference>

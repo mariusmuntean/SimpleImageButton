@@ -12,16 +12,16 @@
              VerticalOptions="Start"
              x:Name="ME"
              BackgroundColor="Transparent">
-    
+
     <ContentView.Resources>
         <ResourceDictionary Source="SimpleImageButtonResources.xaml" />
     </ContentView.Resources>
-    
+
     <!-- This ensures the custom control receives touch events -->
     <ContentView.Effects>
         <effects:TouchAndPressEffect />
     </ContentView.Effects>
-    
+
     <!-- Visually signal that the button's state has changed -->
     <VisualStateManager.VisualStateGroups>
         <VisualStateGroup Name="CommonButtonStates">
@@ -46,17 +46,18 @@
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
 
-    <!-- Layout starts here -->
-    <Frame CornerRadius="15"
+    <!-- Layout starts here - unfortunately this Frame cannot be the parent view due to a XF bug with Effects on Android -->
+    <Frame x:Name="ButtonFrame"
+           BindingContext="{x:Reference ME}"
+           CornerRadius="{Binding CornerRadius}"
            BackgroundColor="#E5E5E5"
            IsClippedToBounds="True"
            HorizontalOptions="Start"
            VerticalOptions="Start"
            Padding="0">
-        
+
         <!-- Main layout - a 3x3 grid -->
-        <Grid BindingContext="{x:Reference ME}"
-              Padding="0"
+        <Grid Padding="0"
               Margin="0"
               RowSpacing="0"
               ColumnSpacing="0">

@@ -90,5 +90,25 @@ namespace SimpleImageButton
             get => (Style) GetValue(LabelStyleProperty);
             set => SetValue(LabelStyleProperty, value);
         }
+
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(
+            nameof(CornerRadius),
+            typeof(float),
+            typeof(SimpleImageButton),
+            0.0d,
+            BindingMode.OneWay,
+            propertyChanged: OnCornerRadiusChanged
+        );
+
+        private static void OnCornerRadiusChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((SimpleImageButton) bindable).ButtonFrame.CornerRadius = (float) newvalue;
+        }
+
+        public float CornerRadius
+        {
+            get => (float) GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
+        }
     }
 }

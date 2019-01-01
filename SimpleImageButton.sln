@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton", "SimpleImageButton\SimpleImageButton.csproj", "{9BF49933-E4AC-4EB5-994C-FADC2152BD19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton", "src\SimpleImageButton\SimpleImageButton.csproj", "{9BF49933-E4AC-4EB5-994C-FADC2152BD19}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{76A01D7E-9530-4218-BCBC-96AB1BAB1360}"
 EndProject
@@ -11,9 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Sample.iO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Sample", "Samples\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj", "{695F8122-EF0E-4663-BE70-427CFF8B2DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.iOS", "SimpleImageButton.iOS\SimpleImageButton.iOS.csproj", "{C358FE13-308E-4317-AFD4-812088FC1A93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.iOS", "src\SimpleImageButton.iOS\SimpleImageButton.iOS.csproj", "{C358FE13-308E-4317-AFD4-812088FC1A93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Droid", "SimpleImageButton.Droid\SimpleImageButton.Droid.csproj", "{BFC8A443-30D4-4DA2-A568-6E865EB935AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Droid", "src\SimpleImageButton.Droid\SimpleImageButton.Droid.csproj", "{BFC8A443-30D4-4DA2-A568-6E865EB935AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C0392AD9-0CC2-4D48-857C-B5A8DCBB9DB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,5 +104,8 @@ Global
 		{D975ED0B-DD32-4428-B335-83EF3FD3C35B} = {76A01D7E-9530-4218-BCBC-96AB1BAB1360}
 		{29A96262-581A-4AC1-BD38-B4E08F7F928D} = {76A01D7E-9530-4218-BCBC-96AB1BAB1360}
 		{695F8122-EF0E-4663-BE70-427CFF8B2DC0} = {76A01D7E-9530-4218-BCBC-96AB1BAB1360}
+		{9BF49933-E4AC-4EB5-994C-FADC2152BD19} = {C0392AD9-0CC2-4D48-857C-B5A8DCBB9DB4}
+		{BFC8A443-30D4-4DA2-A568-6E865EB935AA} = {C0392AD9-0CC2-4D48-857C-B5A8DCBB9DB4}
+		{C358FE13-308E-4317-AFD4-812088FC1A93} = {C0392AD9-0CC2-4D48-857C-B5A8DCBB9DB4}
 	EndGlobalSection
 EndGlobal
