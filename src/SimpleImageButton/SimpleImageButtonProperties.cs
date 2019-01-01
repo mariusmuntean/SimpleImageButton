@@ -95,7 +95,7 @@ namespace SimpleImageButton
             nameof(CornerRadius),
             typeof(float),
             typeof(SimpleImageButton),
-            0.0d,
+            0.0f,
             BindingMode.OneWay,
             propertyChanged: OnCornerRadiusChanged
         );

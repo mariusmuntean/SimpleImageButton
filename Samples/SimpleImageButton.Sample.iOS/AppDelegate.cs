@@ -20,6 +20,7 @@ namespace SimpleImageButton.Sample.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+            // Make this call to load the effect
             SimpleImageButton.iOS.Initializator.Init();
 
             LoadApplication(new App());
