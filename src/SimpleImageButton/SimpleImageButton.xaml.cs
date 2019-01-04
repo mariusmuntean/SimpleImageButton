@@ -13,6 +13,11 @@ namespace SimpleImageButton
         public SimpleImageButton()
         {
             InitializeComponent();
+
+            // WooHoo!!!
+            SimpleImageButtonStyle = (Style) Resources["SimpleImageButtonLayoutStyle"];
+            SimpleImageButtonLabelStyle = (Style) Resources["SimpleImageButtonLabelStyle"];
+            SimpleImageButtonImageStyle = (Style) Resources["SimpleImageButtonImageStyle"];
         }
 
         public void ConsumeEvent(EventType gestureType)

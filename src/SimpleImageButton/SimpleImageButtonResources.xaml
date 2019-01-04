@@ -9,10 +9,11 @@
 
     <!-- Style for the button layout -->
     <Style x:Key="SimpleImageButtonLayoutStyle"
-           TargetType="simpleImageButton:SimpleImageButton" >
-        
-    </Style>
+           TargetType="simpleImageButton:SimpleImageButton">
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="BackgroundColor" Value="Fuchsia" />
 
+    </Style>
 
     <!-- Style for the label component -->
     <Style x:Key="SimpleImageButtonLabelStyle"

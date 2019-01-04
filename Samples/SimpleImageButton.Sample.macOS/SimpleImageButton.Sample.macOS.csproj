@@ -84,6 +84,7 @@
     <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512.png" />
     <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512%402x-1.png" />
     <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512-1.png" />
+    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_256x256.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

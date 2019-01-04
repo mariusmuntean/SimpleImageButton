@@ -4,6 +4,7 @@
       "idiom": "universal"
     },
     {
+      "filename": "icon_256x256.png",
       "scale": "1x",
       "idiom": "universal"
     },
@@ -92,6 +93,7 @@
   ],
   "info": {
     "version": 1,
-    "author": "xcode"
+    "author": "xcode",
+    "template-rendering-intent": "original"
   }
 }

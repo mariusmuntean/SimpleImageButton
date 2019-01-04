@@ -85,7 +85,7 @@ namespace SimpleImageButton
             }
         }
 
-        public Style LabelStyle
+        public Style SimpleImageButtonLabelStyle
         {
             get => (Style) GetValue(LabelStyleProperty);
             set => SetValue(LabelStyleProperty, value);
@@ -102,13 +102,75 @@ namespace SimpleImageButton
 
         private static void OnCornerRadiusChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            ((SimpleImageButton) bindable).ButtonFrame.CornerRadius = (float) newvalue;
+//            if (((SimpleImageButton) bindable).ButtonFrame != null)
+//            {
+//                ((SimpleImageButton) bindable).ButtonFrame.CornerRadius = (float) newvalue;
+//            }
         }
 
         public float CornerRadius
         {
             get => (float) GetValue(CornerRadiusProperty);
             set => SetValue(CornerRadiusProperty, value);
+        }
+
+        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(
+            nameof(BackgroundColor),
+            typeof(Color),
+            typeof(SimpleImageButton),
+            Color.LightGray,
+            BindingMode.OneWay,
+            propertyChanged: OnBackgroundColorChanged
+        );
+
+        private static void OnBackgroundColorChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+//            ((SimpleImageButton) bindable).ButtonFrame.BackgroundColor = (Color) newValue;
+        }
+
+        public new Color BackgroundColor
+        {
+            get => (Color) GetValue(BackgroundColorProperty);
+            set => SetValue(BackgroundColorProperty, value);
+        }
+
+
+        public static readonly BindableProperty SimpleImageButtonStyleProperty = BindableProperty.Create(
+            nameof(SimpleImageButtonStyle),
+            typeof(Style),
+            typeof(SimpleImageButton),
+            null,
+            BindingMode.OneWay, propertyChanged: OnSimpleImageButtonStyleChanged
+        );
+
+        private static void OnSimpleImageButtonStyleChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+        }
+
+        public Style SimpleImageButtonStyle
+        {
+            get => (Style) GetValue(SimpleImageButtonStyleProperty);
+            set => SetValue(SimpleImageButtonStyleProperty, value);
+        }
+
+        public static readonly BindableProperty SimpleImageButtonImageStyleProperty = BindableProperty.Create(
+            nameof(SimpleImageButtonImageStyle),
+            typeof(Style),
+            typeof(SimpleImageButton),
+            null,
+            BindingMode.OneWay,
+            propertyChanged: OnSimpleImageButtonImageStyleChanged
+        );
+
+        private static void OnSimpleImageButtonImageStyleChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Style SimpleImageButtonImageStyle
+        {
+            get => (Style) GetValue(SimpleImageButtonImageStyleProperty);
+            set => SetValue(SimpleImageButtonImageStyleProperty, value);
         }
     }
 }

@@ -10,12 +10,16 @@
              x:Class="SimpleImageButton.SimpleImageButton"
              HorizontalOptions="Start"
              VerticalOptions="Start"
-             x:Name="ME"
-             BackgroundColor="Transparent">
+             x:Name="ME">
 
     <ContentView.Resources>
         <ResourceDictionary Source="SimpleImageButtonResources.xaml" />
     </ContentView.Resources>
+
+    <ContentView.Style>
+        <Style TargetType="simpleImageButton:SimpleImageButton"
+               BasedOn="{x:StaticResource SimpleImageButtonLayoutStyle}" />
+    </ContentView.Style>
 
     <!-- This ensures the custom control receives touch events -->
     <ContentView.Effects>
@@ -49,8 +53,7 @@
     <!-- Layout starts here - unfortunately this Frame cannot be the parent view due to a XF bug with Effects on Android -->
     <Frame x:Name="ButtonFrame"
            BindingContext="{x:Reference ME}"
-           CornerRadius="{Binding CornerRadius}"
-           BackgroundColor="#E5E5E5"
+           Style="{Binding SimpleImageButtonStyle}"
            IsClippedToBounds="True"
            HorizontalOptions="Start"
            VerticalOptions="Start"

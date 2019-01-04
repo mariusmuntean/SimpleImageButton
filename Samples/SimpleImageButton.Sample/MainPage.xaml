@@ -18,7 +18,7 @@
                     Value    = "AppIcon" />
                 <On
                     Platform = "macOS"
-                    Value    = "DemoImage" />
+                    Value    = "AppIcon" />
                 <On
                     Platform = "Android"
                     Value    = "icon.png" />
@@ -60,21 +60,21 @@
                 LabelText       = "Hi!"
                 LabelLocation   = "Left"
                 ImageSource     = "{x:StaticResource XamarinImage}">
-                <simpleImageButton:SimpleImageButton.LabelStyle>
+                <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
                     <Style
                         TargetType = "Label">
                         <Setter
                             Property = "BackgroundColor"
                             Value    = "Red" />
                     </Style>
-                </simpleImageButton:SimpleImageButton.LabelStyle>
+                </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
             </simpleImageButton:SimpleImageButton>
             <simpleImageButton:SimpleImageButton
                 Grid.Column     = "1"
                 VerticalOptions = "Center"
                 LabelText       = "Hi!"
                 LabelLocation   = "Top"
-                LabelStyle      = "{StaticResource AdvancedLabelStyle}"
+                SimpleImageButtonLabelStyle      = "{StaticResource AdvancedLabelStyle}"
                 ImageSource     = "{x:StaticResource XamarinImage}" />
             <simpleImageButton:SimpleImageButton
                 Grid.Column     = "2"
@@ -95,8 +95,17 @@
             <ImageButton
                 Source = "x:StaticResource XamarinImage" />
             <Button
-                Text = "NativeButton">
+                Image = "{x:StaticResource XamarinImage}"
+                Text  = "NativeButton">
             </Button>
+            <Image
+                WidthRequest      = "33"
+                HeightRequest     = "33"
+                VerticalOptions   = "Center"
+                HorizontalOptions = "Center"
+                BackgroundColor   = "Green"
+                Source            = "{x:StaticResource XamarinImage}">
+            </Image>
         </StackLayout>
     </Grid>
 </ContentPage>
