@@ -37,8 +37,8 @@
             </VisualState>
             <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.DisabledState}">
                 <VisualState.Setters>
-                    <Setter Property="View.Scale"
-                            Value="1.0" />
+                    <Setter Property="View.Opacity"
+                            Value="0.5" />
                 </VisualState.Setters>
             </VisualState>
         </VisualStateGroup>
@@ -46,6 +46,7 @@
     <!-- Layout starts here - unfortunately this Frame cannot be the parent view due to a XF bug with Effects on Android -->
     <Frame x:Name="ButtonFrame"
            BindingContext="{x:Reference ME}"
+           IsEnabled="{Binding IsEnabled}"
            Style="{Binding SimpleImageButtonFrameStyle}">
         <!-- Main layout - a 3x3 grid -->
         <Grid Padding="0"

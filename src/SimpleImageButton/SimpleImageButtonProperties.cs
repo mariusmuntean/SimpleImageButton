@@ -8,6 +8,32 @@ namespace SimpleImageButton
 {
     public partial class SimpleImageButton
     {
+        protected override void OnPropertyChanged(string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+
+            switch (propertyName)
+            {
+                case var isEnabledPropertyName when (propertyName == VisualElement.IsEnabledProperty.PropertyName):
+                {
+                    HandleIsEnabledChanged();
+                    break;
+                }
+            }
+        }
+
+        private void HandleIsEnabledChanged()
+        {
+            if (IsEnabled)
+            {
+                VisualStateManager.GoToState(this, NormalState);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, DisabledState);
+            }
+        }
+
         public static readonly BindableProperty LabelTextProperty = BindableProperty.Create(
             "LabelText",
             typeof(string),

@@ -74,7 +74,8 @@
             <Label Text="No Text or Image"
                    HorizontalOptions="CenterAndExpand"
                    HorizontalTextAlignment="Center" />
-            <Grid Margin="0,0,0,10">
+            <Grid Margin="0,0,0,10"
+                  HorizontalOptions="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -87,6 +88,25 @@
                                                      VerticalOptions="Center"
                                                      LabelText="no image"
                                                      LabelLocation="Center" />
+            </Grid>
+
+            <!-- Enabled/Disabled Button-->
+            <Label Text="Enabled/Disabled Button"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" />
+            <Grid Margin="0,0,0,10"
+                  HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Switch x:Name="ButtonSwitch" IsToggled="True" VerticalOptions="Center" />
+                <simpleImageButton:SimpleImageButton Grid.Column="1"
+                                                     IsEnabled="{Binding Source={x:Reference ButtonSwitch}, Path=IsToggled, Mode=OneWay}"
+                                                     VerticalOptions="Center"
+                                                     ImageSource="{x:StaticResource XamarinImage}"
+                                                     LabelText=":D"
+                                                     LabelLocation="Right" />
             </Grid>
 
             <StackLayout Orientation="Horizontal">

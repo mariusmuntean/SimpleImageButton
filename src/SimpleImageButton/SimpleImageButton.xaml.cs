@@ -32,8 +32,6 @@ namespace SimpleImageButton
                     VisualStateManager.GoToState(ME, PressedState);
                     break;
                 case EventType.Cancelled:
-                    VisualStateManager.GoToState(ME, DisabledState);
-                    break;
                 case EventType.Released:
                     VisualStateManager.GoToState(ME, NormalState);
                     break;
