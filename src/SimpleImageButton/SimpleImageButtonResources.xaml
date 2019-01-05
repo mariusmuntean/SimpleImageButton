@@ -5,32 +5,50 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
+                    xmlns:converters="clr-namespace:SimpleImageButton.Converters;assembly=SimpleImageButton"
                     x:Class="SimpleImageButton.SimpleImageButtonResources">
-
     <!-- Style for the button layout -->
-    <Style x:Key="SimpleImageButtonLayoutStyle"
-           TargetType="simpleImageButton:SimpleImageButton">
-        <Setter Property="CornerRadius" Value="12" />
-        <Setter Property="BackgroundColor" Value="Fuchsia" />
-
+    <Style x:Key="SimpleImageButtonFrameStyle"
+           TargetType="Frame">
+        <Setter Property="CornerRadius"
+                Value="12" />
+        <Setter Property="BackgroundColor"
+                Value="GhostWhite" />
+        <Setter Property="HorizontalOptions"
+                Value="Center" />
+        <Setter Property="VerticalOptions"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="IsClippedToBounds"
+                Value="True" />
     </Style>
-
     <!-- Style for the label component -->
     <Style x:Key="SimpleImageButtonLabelStyle"
            TargetType="Label">
-        <Setter Property="FontSize" Value="33" />
-        <Setter Property="FontFamily" Value="Helvetica" />
-        <Setter Property="BackgroundColor" Value="Orange" />
+        <Setter Property="FontSize"
+                Value="22" />
+        <Setter Property="FontFamily"
+                Value="Helvetica" />
+       
     </Style>
-
     <!-- Style for the image component -->
-    <Style x:Key="SimpleImageButtonImageStyle" TargetType="Image">
-        <Setter Property="Margin" Value="0" />
-        <Setter Property="VerticalOptions" Value="Center" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="Aspect" Value="AspectFill" />
-        <Setter Property="HeightRequest" Value="55" />
-        <Setter Property="WidthRequest" Value="55" />
+    <Style x:Key="SimpleImageButtonImageStyle"
+           TargetType="Image">
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="VerticalOptions"
+                Value="Center" />
+        <Setter Property="HorizontalOptions"
+                Value="Center" />
+        <Setter Property="Aspect"
+                Value="AspectFill" />
+        <Setter Property="HeightRequest"
+                Value="55" />
+        <Setter Property="WidthRequest"
+                Value="55" />
     </Style>
-
+    
+    <!-- Converters -->
+    <converters:ObjToVisibilityConverter x:Key="ObjToVisibilityConverter"/>
 </ResourceDictionary>

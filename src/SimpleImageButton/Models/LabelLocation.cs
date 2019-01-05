@@ -8,6 +8,8 @@
         Left,
         Top,
         Right,
-        Bottom
+        Bottom,
+        Center,
+        None
     }
 }

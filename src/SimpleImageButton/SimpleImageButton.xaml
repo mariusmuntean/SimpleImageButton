@@ -8,24 +8,18 @@
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:effects="clr-namespace:SimpleImageButton.Effects;assembly=SimpleImageButton"
              x:Class="SimpleImageButton.SimpleImageButton"
-             HorizontalOptions="Start"
-             VerticalOptions="Start"
+             HorizontalOptions="Center"
+             VerticalOptions="Center"
+             BackgroundColor="Transparent"
+             BindingContext="{Binding .}"
              x:Name="ME">
-
     <ContentView.Resources>
         <ResourceDictionary Source="SimpleImageButtonResources.xaml" />
     </ContentView.Resources>
-
-    <ContentView.Style>
-        <Style TargetType="simpleImageButton:SimpleImageButton"
-               BasedOn="{x:StaticResource SimpleImageButtonLayoutStyle}" />
-    </ContentView.Style>
-
     <!-- This ensures the custom control receives touch events -->
     <ContentView.Effects>
         <effects:TouchAndPressEffect />
     </ContentView.Effects>
-
     <!-- Visually signal that the button's state has changed -->
     <VisualStateManager.VisualStateGroups>
         <VisualStateGroup Name="CommonButtonStates">
@@ -49,16 +43,10 @@
             </VisualState>
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
-
     <!-- Layout starts here - unfortunately this Frame cannot be the parent view due to a XF bug with Effects on Android -->
     <Frame x:Name="ButtonFrame"
            BindingContext="{x:Reference ME}"
-           Style="{Binding SimpleImageButtonStyle}"
-           IsClippedToBounds="True"
-           HorizontalOptions="Start"
-           VerticalOptions="Start"
-           Padding="0">
-
+           Style="{Binding SimpleImageButtonFrameStyle}">
         <!-- Main layout - a 3x3 grid -->
         <Grid Padding="0"
               Margin="0"
@@ -78,18 +66,14 @@
             <Image Grid.Row="1"
                    Grid.Column="1"
                    x:Name="ButtonImage"
-                   Margin="0"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center"
-                   Aspect="AspectFit"
-                   HeightRequest="55"
-                   WidthRequest="55"
-                   Source="{Binding ImageSource}" />
+                   Style="{Binding SimpleImageButtonImageStyle}"
+                   Source="{Binding ImageSource}"
+                   IsVisible="{Binding ImageSource, Converter={x:StaticResource ObjToVisibilityConverter}}" />
             <!-- the label is below the image, by default -->
             <Label Grid.Row="2"
                    Grid.Column="1"
                    x:Name="ButtonLabel"
-                   Style="{StaticResource SimpleImageButtonLabelStyle}"
+                   Style="{Binding SimpleImageButtonLabelStyle}"
                    Text="{Binding LabelText}"
                    HorizontalOptions="Center"
                    VerticalOptions="Start">
@@ -149,6 +133,26 @@
                                 Value="Center" />
                         <Setter Property="Margin"
                                 Value="5,5,0,5" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding LabelLocation}"
+                                 Value="{x:Static models:LabelLocation.Center}"
+                                 TargetType="Label">
+                        <Setter Property="Grid.Row"
+                                Value="1" />
+                        <Setter Property="Grid.Column"
+                                Value="1" />
+                        <Setter Property="HorizontalOptions"
+                                Value="End" />
+                        <Setter Property="VerticalOptions"
+                                Value="Center" />
+                        <Setter Property="Margin"
+                                Value="5" />
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding LabelLocation}"
+                                 Value="{x:Static models:LabelLocation.None}"
+                                 TargetType="Label">
+                        <Setter Property="VisualElement.IsVisible"
+                                Value="False" />
                     </DataTrigger>
                 </Label.Triggers>
             </Label>

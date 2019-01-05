@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using Xamarin.Forms;
 using SimpleImageButton.Models;
+using Xamarin.Forms.Internals;
 
 namespace SimpleImageButton
 {
@@ -100,7 +102,7 @@ namespace SimpleImageButton
             propertyChanged: OnCornerRadiusChanged
         );
 
-        private static void OnCornerRadiusChanged(BindableObject bindable, object oldvalue, object newvalue)
+        public static void OnCornerRadiusChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
 //            if (((SimpleImageButton) bindable).ButtonFrame != null)
 //            {
@@ -114,43 +116,24 @@ namespace SimpleImageButton
             set => SetValue(CornerRadiusProperty, value);
         }
 
-        public new static readonly BindableProperty BackgroundColorProperty = BindableProperty.Create(
-            nameof(BackgroundColor),
+        public static readonly BindableProperty ButtonBackgroundColorProperty = BindableProperty.Create(
+            nameof(ButtonBackgroundColor),
             typeof(Color),
             typeof(SimpleImageButton),
-            Color.LightGray,
+            Color.Khaki,
             BindingMode.OneWay,
             propertyChanged: OnBackgroundColorChanged
         );
 
-        private static void OnBackgroundColorChanged(BindableObject bindable, object oldValue, object newValue)
+        public static void OnBackgroundColorChanged(BindableObject bindable, object oldValue, object newValue)
         {
 //            ((SimpleImageButton) bindable).ButtonFrame.BackgroundColor = (Color) newValue;
         }
 
-        public new Color BackgroundColor
+        public Color ButtonBackgroundColor
         {
             get => (Color) GetValue(BackgroundColorProperty);
             set => SetValue(BackgroundColorProperty, value);
-        }
-
-
-        public static readonly BindableProperty SimpleImageButtonStyleProperty = BindableProperty.Create(
-            nameof(SimpleImageButtonStyle),
-            typeof(Style),
-            typeof(SimpleImageButton),
-            null,
-            BindingMode.OneWay, propertyChanged: OnSimpleImageButtonStyleChanged
-        );
-
-        private static void OnSimpleImageButtonStyleChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-        }
-
-        public Style SimpleImageButtonStyle
-        {
-            get => (Style) GetValue(SimpleImageButtonStyleProperty);
-            set => SetValue(SimpleImageButtonStyleProperty, value);
         }
 
         public static readonly BindableProperty SimpleImageButtonImageStyleProperty = BindableProperty.Create(
@@ -164,13 +147,34 @@ namespace SimpleImageButton
 
         private static void OnSimpleImageButtonImageStyleChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{nameof(SimpleImageButtonImageStyle)} new val: {newvalue}");
         }
 
         public Style SimpleImageButtonImageStyle
         {
             get => (Style) GetValue(SimpleImageButtonImageStyleProperty);
             set => SetValue(SimpleImageButtonImageStyleProperty, value);
+        }
+
+
+        public static readonly BindableProperty SimpleImageButtonFrameStyleProperty = BindableProperty.Create(
+            nameof(SimpleImageButtonFrameStyle),
+            typeof(Style),
+            typeof(SimpleImageButton),
+            null,
+            BindingMode.OneWay,
+            propertyChanged: OnSimpleImageButtonFrameStyleChanged
+        );
+
+        private static void OnSimpleImageButtonFrameStyleChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            Console.WriteLine($"{nameof(SimpleImageButtonFrameStyle)} new val: {newvalue}");
+        }
+
+        public Style SimpleImageButtonFrameStyle
+        {
+            get => (Style) GetValue(SimpleImageButtonFrameStyleProperty);
+            set => SetValue(SimpleImageButtonFrameStyleProperty, value);
         }
     }
 }

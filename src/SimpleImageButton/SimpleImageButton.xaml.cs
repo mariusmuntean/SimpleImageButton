@@ -1,6 +1,7 @@
 ﻿using System;
 using SimpleImageButton.Contracts;
 using Xamarin.Forms;
+using Color = System.Drawing.Color;
 
 namespace SimpleImageButton
 {
@@ -14,10 +15,13 @@ namespace SimpleImageButton
         {
             InitializeComponent();
 
-            // WooHoo!!!
-            SimpleImageButtonStyle = (Style) Resources["SimpleImageButtonLayoutStyle"];
+            // Set default values
+            SimpleImageButtonFrameStyle = (Style) Resources["SimpleImageButtonFrameStyle"];
             SimpleImageButtonLabelStyle = (Style) Resources["SimpleImageButtonLabelStyle"];
             SimpleImageButtonImageStyle = (Style) Resources["SimpleImageButtonImageStyle"];
+
+//            CornerRadius = 15.0f;
+//            BackgroundColor = Color.LightGray;
         }
 
         public void ConsumeEvent(EventType gestureType)
