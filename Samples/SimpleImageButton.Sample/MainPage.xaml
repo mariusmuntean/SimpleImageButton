@@ -6,6 +6,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SimpleImageButton.Sample"
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
+             xmlns:models="clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
              BackgroundColor="LightGray"
              x:Class="SimpleImageButton.Sample.MainPage">
     <ContentPage.Resources>
@@ -48,12 +49,12 @@
     <ScrollView Orientation="Both"
                 VerticalScrollBarVisibility="Default"
                 HorizontalScrollBarVisibility="Default"
-                HorizontalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand"
                 VerticalOptions="CenterAndExpand">
 
         <StackLayout Orientation="Vertical"
                      VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="CenterAndExpand">
+                     HorizontalOptions="FillAndExpand">
             <!-- Label Locations -->
             <Label Text="4 Label Locations"
                    HorizontalOptions="CenterAndExpand"
@@ -165,6 +166,8 @@
                          CornerRadius="33"
                          HeightRequest="66"
                          WidthRequest="66"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
                          X="{Binding Source={x:Reference RoundButtonA}, Path=X}"
                          Y="{Binding Source={x:Reference RoundButtonA}, Path=Y}"
                          BackgroundColor="Aqua"
@@ -184,35 +187,92 @@
                 </simpleImageButton:SimpleImageButton>
 
                 <Label Text="Round Button B" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" FontSize="Small" />
-                <BoxView Grid.Row="3"
-                         Grid.Column="1"
-                         CornerRadius="33"
-                         HeightRequest="66"
-                         WidthRequest="66"
-                         X="{Binding Source={x:Reference RoundButtonB}, Path=X}"
-                         Y="{Binding Source={x:Reference RoundButtonB}, Path=Y}"
-                         BackgroundColor="DeepPink"
-                         Scale="{Binding Source={x:Reference RoundButtonB}, Path=Scale}" />
                 <simpleImageButton:SimpleImageButton Grid.Row="3"
                                                      Grid.Column="1"
-                                                     x:Name="RoundButtonB"
-                                                     HeightRequest="60"
+                                                     LabelLocation="None"
+                                                     WidthRequest="60"
                                                      CornerRadius="30"
-                                                     ImageSource="{x:StaticResource BlueXamarinImage}"
-                                                     LabelLocation="None">
-                    <simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
-                        <Style TargetType="Image" BasedOn="{StaticResource SimpleImageButtonImageStyle}">
-                            <Setter Property="Margin" Value="0" />
-                            <Setter Property="HeightRequest" Value="60" />
-                            <Setter Property="WidthRequest" Value="60" />
-                        </Style>
-                    </simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
+                                                     ImageSource="{x:StaticResource XamarinImage}">
                     <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
                         <Style TargetType="Frame" BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
-                            <Setter Property="BackgroundColor" Value="#01FFFFFF" />
+                            <Setter Property="BackgroundColor" Value="Transparent" />
+                            <Setter Property="BorderColor" Value="DeepPink" />
                         </Style>
                     </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
                 </simpleImageButton:SimpleImageButton>
+
+            </Grid>
+
+
+            <!-- Multiple Customization-->
+            <Label Text="Multiple Customization"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center" />
+            <Grid Margin="0,0,0,10"
+                  BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Round Button w/ Initials/Sign" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" FontSize="Small" />
+                <StackLayout Grid.Row="3"
+                             Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
+                    <simpleImageButton:SimpleImageButton WidthRequest="60"
+                                                         HeightRequest="60"
+                                                         CornerRadius="30"
+                                                         LabelLocation="Center"
+                                                         LabelText="JD">
+                        <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                            <Style TargetType="Frame"
+                                   BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                                <Setter Property="BackgroundColor" Value="DeepSkyBlue" />
+                                <Setter Property="BorderColor" Value="DeepPink" />
+                                <Setter Property="HasShadow" Value="True" />
+                            </Style>
+                        </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                        <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                            <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
+                                <Setter Property="FontSize" Value="32" />
+                                <Setter Property="FontFamily" Value="GillSans-SemiBold" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="Margin" Value="7" />
+                            </Style>
+                        </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                    </simpleImageButton:SimpleImageButton>
+                    <simpleImageButton:SimpleImageButton WidthRequest="60"
+                                                         HeightRequest="60"
+                                                         LabelLocation="Center"
+                                                         LabelText="+">
+                        <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                            <Style TargetType="Frame"
+                                   BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                                <Setter Property="BackgroundColor" Value="DeepSkyBlue" />
+                                <Setter Property="BorderColor" Value="DeepSkyBlue" />
+                                <Setter Property="HasShadow" Value="True" />
+                                <Setter Property="Padding" Value="5" />
+                                <Setter Property="CornerRadius" Value="30" />
+                                <Setter Property="IsClippedToBounds" Value="False" />
+                            </Style>
+                        </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                        <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                            <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
+                                <Setter Property="FontSize" Value="32" />
+                                <Setter Property="FontFamily" Value="GillSans-SemiBold" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="Margin" Value="7" />
+                            </Style>
+                        </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                    </simpleImageButton:SimpleImageButton>
+
+                </StackLayout>
+
 
             </Grid>
 

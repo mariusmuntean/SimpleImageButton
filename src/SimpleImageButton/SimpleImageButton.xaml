@@ -8,8 +8,8 @@
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:effects="clr-namespace:SimpleImageButton.Effects;assembly=SimpleImageButton"
              x:Class="SimpleImageButton.SimpleImageButton"
-             VerticalOptions="Center"
-             HorizontalOptions="Center"
+             VerticalOptions="CenterAndExpand"
+             HorizontalOptions="CenterAndExpand"
              BackgroundColor="Transparent"
              BindingContext="{Binding .}"
              x:Name="ME">
@@ -52,7 +52,9 @@
         <Grid Padding="0"
               Margin="0"
               RowSpacing="0"
-              ColumnSpacing="0">
+              ColumnSpacing="0"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -77,7 +79,7 @@
                    Style="{Binding SimpleImageButtonLabelStyle}"
                    Text="{Binding LabelText}"
                    HorizontalOptions="Center"
-                   VerticalOptions="Start">
+                   VerticalOptions="Center">
                 <Label.Triggers>
                     <DataTrigger Binding="{Binding LabelLocation}"
                                  Value="{x:Static models:LabelLocation.Bottom}"
@@ -143,7 +145,7 @@
                         <Setter Property="Grid.Column"
                                 Value="1" />
                         <Setter Property="HorizontalOptions"
-                                Value="End" />
+                                Value="Center" />
                         <Setter Property="VerticalOptions"
                                 Value="Center" />
                         <Setter Property="Margin"

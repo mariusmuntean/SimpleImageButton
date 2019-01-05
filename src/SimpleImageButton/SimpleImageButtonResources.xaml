@@ -15,9 +15,9 @@
         <Setter Property="BackgroundColor"
                 Value="GhostWhite" />
         <Setter Property="HorizontalOptions"
-                Value="Center" />
+                Value="FillAndExpand" />
         <Setter Property="VerticalOptions"
-                Value="Center" />
+                Value="FillAndExpand" />
         <Setter Property="Padding"
                 Value="0" />
         <Setter Property="IsClippedToBounds"
@@ -26,7 +26,14 @@
     <!-- Style for the label component -->
     <Style x:Key="SimpleImageButtonLabelStyle"
            TargetType="Label">
-
+        <Setter Property="HorizontalOptions"
+                Value="CenterAndExpand" />
+        <Setter Property="VerticalOptions"
+                Value="CenterAndExpand" />
+        <Setter Property="HorizontalTextAlignment"
+                Value="Center" />
+        <Setter Property="VerticalTextAlignment"
+                Value="Center" />
         <Setter Property="FontSize"
                 Value="16" />
         <Setter Property="FontFamily"
@@ -36,6 +43,10 @@
     <!-- Style for the image component -->
     <Style x:Key="SimpleImageButtonImageStyle"
            TargetType="Image">
+        <Setter Property="HorizontalOptions"
+                Value="CenterAndExpand" />
+        <Setter Property="VerticalOptions"
+                Value="CenterAndExpand" />
         <Setter Property="Margin" Value="5" />
         <Setter Property="Aspect" Value="AspectFit" />
     </Style>

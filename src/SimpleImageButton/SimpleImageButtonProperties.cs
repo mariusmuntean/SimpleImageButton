@@ -75,10 +75,10 @@ namespace SimpleImageButton
 
 
         public static readonly BindableProperty LabelLocationProperty = BindableProperty.Create(
-            "LabelLocation",
+            nameof(LabelLocation),
             typeof(LabelLocation),
             typeof(SimpleImageButton),
-            LabelLocation.Bottom,
+            LabelLocation.None,
             BindingMode.OneWay,
             propertyChanged: OnLabelLocationPropertyChange
         );
