@@ -8,8 +8,8 @@
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:effects="clr-namespace:SimpleImageButton.Effects;assembly=SimpleImageButton"
              x:Class="SimpleImageButton.SimpleImageButton"
-             HorizontalOptions="Center"
              VerticalOptions="Center"
+             HorizontalOptions="Center"
              BackgroundColor="Transparent"
              BindingContext="{Binding .}"
              x:Name="ME">

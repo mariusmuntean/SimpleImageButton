@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Linq;
 using Xamarin.Forms;
 using SimpleImageButton.Models;
-using Xamarin.Forms.Internals;
 
 namespace SimpleImageButton
 {
@@ -14,12 +12,33 @@ namespace SimpleImageButton
 
             switch (propertyName)
             {
-                case var isEnabledPropertyName when (propertyName == VisualElement.IsEnabledProperty.PropertyName):
+                case var _ when (propertyName == VisualElement.IsEnabledProperty.PropertyName):
                 {
                     HandleIsEnabledChanged();
                     break;
                 }
+                case var _ when (propertyName == CornerRadiusProperty.PropertyName):
+                {
+                    HandleCornerRadiusChanged();
+                    break;
+                }
+
+                case var _ when (propertyName == ButtonBackgroundColorProperty.PropertyName):
+                {
+                    HandleButtonBackgroundColorChanged();
+                    break;
+                }
             }
+        }
+
+        private void HandleButtonBackgroundColorChanged()
+        {
+            ButtonFrame.BackgroundColor = ButtonBackgroundColor;
+        }
+
+        private void HandleCornerRadiusChanged()
+        {
+            ButtonFrame.CornerRadius = CornerRadius;
         }
 
         private void HandleIsEnabledChanged()
@@ -124,17 +143,8 @@ namespace SimpleImageButton
             typeof(float),
             typeof(SimpleImageButton),
             0.0f,
-            BindingMode.OneWay,
-            propertyChanged: OnCornerRadiusChanged
+            BindingMode.TwoWay
         );
-
-        public static void OnCornerRadiusChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-//            if (((SimpleImageButton) bindable).ButtonFrame != null)
-//            {
-//                ((SimpleImageButton) bindable).ButtonFrame.CornerRadius = (float) newvalue;
-//            }
-        }
 
         public float CornerRadius
         {
@@ -146,20 +156,14 @@ namespace SimpleImageButton
             nameof(ButtonBackgroundColor),
             typeof(Color),
             typeof(SimpleImageButton),
-            Color.Khaki,
-            BindingMode.OneWay,
-            propertyChanged: OnBackgroundColorChanged
+            Color.Default,
+            BindingMode.TwoWay
         );
-
-        public static void OnBackgroundColorChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-//            ((SimpleImageButton) bindable).ButtonFrame.BackgroundColor = (Color) newValue;
-        }
 
         public Color ButtonBackgroundColor
         {
-            get => (Color) GetValue(BackgroundColorProperty);
-            set => SetValue(BackgroundColorProperty, value);
+            get => (Color) GetValue(ButtonBackgroundColorProperty);
+            set => SetValue(ButtonBackgroundColorProperty, value);
         }
 
         public static readonly BindableProperty SimpleImageButtonImageStyleProperty = BindableProperty.Create(

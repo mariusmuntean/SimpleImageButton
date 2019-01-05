@@ -20,8 +20,6 @@ namespace SimpleImageButton
             SimpleImageButtonLabelStyle = (Style) Resources["SimpleImageButtonLabelStyle"];
             SimpleImageButtonImageStyle = (Style) Resources["SimpleImageButtonImageStyle"];
 
-//            CornerRadius = 15.0f;
-//            BackgroundColor = Color.LightGray;
         }
 
         public void ConsumeEvent(EventType gestureType)
