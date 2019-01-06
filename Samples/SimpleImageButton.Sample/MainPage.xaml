@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:SimpleImageButton.Sample"
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:models="clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
-             BackgroundColor="#FFB9B9B9"
+             BackgroundColor="White"
              x:Class="SimpleImageButton.Sample.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -21,7 +21,7 @@
                 <On Platform="macOS"
                     Value="AppIcon" />
                 <On Platform="Android"
-                    Value="icon.png" />
+                    Value="xamarin_white.png" />
             </OnPlatform>
             <OnPlatform x:Key="Isaac"
                         x:TypeArguments="ImageSource">
@@ -30,7 +30,7 @@
                 <On Platform="macOS"
                     Value="AppIcon" />
                 <On Platform="Android"
-                    Value="icon.png" />
+                    Value="isaac.png" />
             </OnPlatform>
             <OnPlatform x:Key="BlueXamarinImage"
                         x:TypeArguments="ImageSource">
@@ -86,12 +86,13 @@
                     <Setter Property="HorizontalTextAlignment" Value="Start" />
                     <Setter Property="FontSize" Value="Large" />
                     <Setter Property="Margin" Value="5,0" />
+                    <Setter Property="TextColor" Value="DimGray" />
                 </Style>
                 <Style TargetType="Grid" x:Key="SectionLayoutStyle">
                     <Setter Property="Margin" Value="5,0,5,10" />
                     <Setter Property="Padding" Value="10" />
                     <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                    <Setter Property="BackgroundColor" Value="LightGray" />
+                    <Setter Property="BackgroundColor" Value="#FFEDEDED" />
                 </Style>
             </StackLayout.Resources>
             <!-- Label Locations -->
@@ -175,6 +176,7 @@
                     <Style TargetType="Label">
                         <Setter Property="VerticalOptions" Value="Center" />
                         <Setter Property="FontSize" Value="Small" />
+                        <Setter Property="TextColor" Value="Gray" />
                     </Style>
                 </Grid.Resources>
                 <Label Text="Large Corner Radius" />
@@ -255,6 +257,7 @@
                     <Style TargetType="Label">
                         <Setter Property="VerticalOptions" Value="Center" />
                         <Setter Property="FontSize" Value="Small" />
+                        <Setter Property="TextColor" Value="Gray" />
                     </Style>
                 </Grid.Resources>
 
