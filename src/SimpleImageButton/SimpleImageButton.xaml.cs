@@ -7,6 +7,8 @@ namespace SimpleImageButton
 {
     public partial class SimpleImageButton : ContentView, ITouchAndPressEffectConsumer
     {
+        public static readonly string VisualStateGroupName = "CommonButtonStates";
+        
         public static readonly string NormalState = "normal";
         public static readonly string PressedState = "pressed";
         public static readonly string DisabledState = "disabled";

@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:SimpleImageButton.Sample"
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:models="clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
-             BackgroundColor="DarkGray"
+             BackgroundColor="#FFB9B9B9"
              x:Class="SimpleImageButton.Sample.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -46,7 +46,7 @@
                    BasedOn="SimpleImageButtonLabelStyle" />
 
             <VisualStateGroupList x:Key="CustomVisualStateGroupList">
-                <VisualStateGroup Name="CommonButtonStates">
+                <VisualStateGroup Name="{x:Static simpleImageButton:SimpleImageButton.VisualStateGroupName}">
                     <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.NormalState}">
                         <VisualState.Setters>
                             <Setter Property="View.Opacity" Value="1" />
@@ -71,6 +71,11 @@
                 HorizontalScrollBarVisibility="Default"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="CenterAndExpand">
+        <ScrollView.Margin>
+            <OnPlatform x:TypeArguments="Thickness" Default="0">
+                <On Platform="iOS" Value="0,20,0,0" />
+            </OnPlatform>
+        </ScrollView.Margin>
 
         <StackLayout Orientation="Vertical"
                      VerticalOptions="CenterAndExpand"
@@ -121,7 +126,7 @@
             </Grid>
 
             <!-- No Text/Image -->
-            <Label Text="No Text or Image" Style="{StaticResource SectionTitleStyle}" />
+            <Label Text="Only Text or Only Image" Style="{StaticResource SectionTitleStyle}" />
             <Grid Style="{StaticResource SectionLayoutStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />

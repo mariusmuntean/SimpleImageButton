@@ -22,7 +22,7 @@
     </ContentView.Effects>
     <!-- Visually signal that the button's state has changed -->
     <VisualStateManager.VisualStateGroups>
-        <VisualStateGroup Name="CommonButtonStates">
+        <VisualStateGroup Name="{x:Static simpleImageButton:SimpleImageButton.VisualStateGroupName}">
             <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.NormalState}">
                 <VisualState.Setters>
                     <Setter Property="View.Scale"
