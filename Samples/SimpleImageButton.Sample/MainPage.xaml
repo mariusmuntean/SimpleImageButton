@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:SimpleImageButton.Sample"
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:models="clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
-             BackgroundColor="LightGray"
+             BackgroundColor="DarkGray"
              x:Class="SimpleImageButton.Sample.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -54,12 +54,12 @@
                     </VisualState>
                     <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.PressedState}">
                         <VisualState.Setters>
-                            <Setter Property="View.Opacity" Value="0.5" />
+                            <Setter Property="View.Opacity" Value="0.4" />
                         </VisualState.Setters>
                     </VisualState>
                     <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.DisabledState}">
                         <VisualState.Setters>
-                            <Setter Property="View.Opacity" Value="0.5" />
+                            <Setter Property="View.Opacity" Value="0.4" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
@@ -75,11 +75,23 @@
         <StackLayout Orientation="Vertical"
                      VerticalOptions="CenterAndExpand"
                      HorizontalOptions="FillAndExpand">
+            <StackLayout.Resources>
+                <Style TargetType="Label" x:Key="SectionTitleStyle">
+                    <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                    <Setter Property="HorizontalTextAlignment" Value="Start" />
+                    <Setter Property="FontSize" Value="Large" />
+                    <Setter Property="Margin" Value="5,0" />
+                </Style>
+                <Style TargetType="Grid" x:Key="SectionLayoutStyle">
+                    <Setter Property="Margin" Value="5,0,5,10" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                    <Setter Property="BackgroundColor" Value="LightGray" />
+                </Style>
+            </StackLayout.Resources>
             <!-- Label Locations -->
-            <Label Text="4 Label Locations"
-                   HorizontalOptions="CenterAndExpand"
-                   HorizontalTextAlignment="Center" />
-            <Grid Margin="0,0,0,10" HorizontalOptions="Center">
+            <Label Text="4 Label Locations" Style="{StaticResource SectionTitleStyle}" />
+            <Grid Style="{StaticResource SectionLayoutStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -109,11 +121,8 @@
             </Grid>
 
             <!-- No Text/Image -->
-            <Label Text="No Text or Image"
-                   HorizontalOptions="CenterAndExpand"
-                   HorizontalTextAlignment="Center" />
-            <Grid Margin="0,0,0,10"
-                  HorizontalOptions="Center">
+            <Label Text="No Text or Image" Style="{StaticResource SectionTitleStyle}" />
+            <Grid Style="{StaticResource SectionLayoutStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -129,11 +138,8 @@
             </Grid>
 
             <!-- Enabled/Disabled Button-->
-            <Label Text="Enabled/Disabled Button"
-                   HorizontalOptions="CenterAndExpand"
-                   HorizontalTextAlignment="Center" />
-            <Grid Margin="0,0,0,10"
-                  HorizontalOptions="Center">
+            <Label Text="Enabled/Disabled Button" Style="{StaticResource SectionTitleStyle}" />
+            <Grid Style="{StaticResource SectionLayoutStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
@@ -148,11 +154,8 @@
             </Grid>
 
             <!-- Little Customization-->
-            <Label Text="Little Customization"
-                   HorizontalOptions="CenterAndExpand"
-                   HorizontalTextAlignment="Center" />
-            <Grid Margin="0,0,0,10"
-                  HorizontalOptions="Center">
+            <Label Text="Little Customization" Style="{StaticResource SectionTitleStyle}" />
+            <Grid Style="{StaticResource SectionLayoutStyle}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -163,7 +166,13 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Large Corner Radius" VerticalOptions="Center" FontSize="Small" />
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="VerticalOptions" Value="Center" />
+                        <Setter Property="FontSize" Value="Small" />
+                    </Style>
+                </Grid.Resources>
+                <Label Text="Large Corner Radius" />
                 <simpleImageButton:SimpleImageButton Grid.Row="0"
                                                      Grid.Column="1"
                                                      HeightRequest="40"
@@ -171,7 +180,7 @@
                                                      CornerRadius="30"
                                                      LabelText=":D"
                                                      LabelLocation="Right" />
-                <Label Text="Background Color" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" FontSize="Small" />
+                <Label Text="Background Color" Grid.Row="1" Grid.Column="0" />
                 <simpleImageButton:SimpleImageButton Grid.Row="1"
                                                      Grid.Column="1"
                                                      HeightRequest="40"
@@ -180,7 +189,7 @@
                                                      LabelText=":D"
                                                      LabelLocation="Right" />
 
-                <Label Text="Round Button A" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" FontSize="Small" />
+                <Label Text="Round Button A" Grid.Row="2" Grid.Column="0" />
                 <BoxView Grid.Row="2"
                          Grid.Column="1"
                          CornerRadius="33"
@@ -206,7 +215,7 @@
                     </simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
                 </simpleImageButton:SimpleImageButton>
 
-                <Label Text="Round Button B" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" FontSize="Small" />
+                <Label Text="Round Button B" Grid.Row="3" Grid.Column="0" />
                 <simpleImageButton:SimpleImageButton Grid.Row="3"
                                                      Grid.Column="1"
                                                      LabelLocation="None"
@@ -225,11 +234,8 @@
 
 
             <!-- Multiple Customization-->
-            <Label Text="Multiple Customization"
-                   HorizontalOptions="CenterAndExpand"
-                   HorizontalTextAlignment="Center" />
-            <Grid Margin="0,0,0,10"
-                  BackgroundColor="White">
+            <Label Text="Multiple Customization" Style="{StaticResource SectionTitleStyle}" />
+            <Grid Style="{StaticResource SectionLayoutStyle}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -240,6 +246,12 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="VerticalOptions" Value="Center" />
+                        <Setter Property="FontSize" Value="Small" />
+                    </Style>
+                </Grid.Resources>
 
                 <Label Text="Round Button w/ Initials/Sign"
                        Grid.Row="0" Grid.Column="0"
@@ -298,11 +310,7 @@
 
                 <!-- Different Visual States -->
                 <Label Text="Custom Visual State Behavior"
-                       Grid.Row="1" Grid.Column="0"
-                       FontSize="Small"
-                       VerticalOptions="Center"
-                       HorizontalOptions="CenterAndExpand"
-                       HorizontalTextAlignment="Center" />
+                       Grid.Row="1" Grid.Column="0" />
 
                 <simpleImageButton:SimpleImageButton Grid.Row="1" Grid.Column="1"
                                                      WidthRequest="80"
@@ -330,8 +338,8 @@
                 <ImageButton Source="{x:StaticResource XamarinImage}" HeightRequest="25" />
                 <Button Image="{x:StaticResource XamarinImage}"
                         Text="NativeButton"
-                        x:Name="NormalButton" 
-                        Clicked="NormalButton_OnClicked"/>
+                        x:Name="NormalButton"
+                        Clicked="NormalButton_OnClicked" />
                 <Image WidthRequest="33"
                        HeightRequest="33"
                        VerticalOptions="Center"
