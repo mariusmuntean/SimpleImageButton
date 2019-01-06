@@ -13,5 +13,10 @@ namespace SimpleImageButton.Sample
         {
             InitializeComponent();
         }
+
+        private void NormalButton_OnClicked(object sender, EventArgs e)
+        {
+            Console.WriteLine((sender as Button).TextColor);
+        }
     }
 }

@@ -44,6 +44,26 @@
             <Style x:Key="AdvancedLabelStyle"
                    TargetType="Label"
                    BasedOn="SimpleImageButtonLabelStyle" />
+
+            <VisualStateGroupList x:Key="CustomVisualStateGroupList">
+                <VisualStateGroup Name="CommonButtonStates">
+                    <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.NormalState}">
+                        <VisualState.Setters>
+                            <Setter Property="View.Opacity" Value="1" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.PressedState}">
+                        <VisualState.Setters>
+                            <Setter Property="View.Opacity" Value="0.5" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="{x:Static simpleImageButton:SimpleImageButton.DisabledState}">
+                        <VisualState.Setters>
+                            <Setter Property="View.Opacity" Value="0.5" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ScrollView Orientation="Both"
@@ -221,8 +241,11 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Round Button w/ Initials/Sign" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" FontSize="Small" />
-                <StackLayout Grid.Row="3"
+                <Label Text="Round Button w/ Initials/Sign"
+                       Grid.Row="0" Grid.Column="0"
+                       VerticalOptions="Center"
+                       FontSize="Small" />
+                <StackLayout Grid.Row="0"
                              Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
                     <simpleImageButton:SimpleImageButton WidthRequest="60"
                                                          HeightRequest="60"
@@ -273,13 +296,42 @@
 
                 </StackLayout>
 
+                <!-- Different Visual States -->
+                <Label Text="Custom Visual State Behavior"
+                       Grid.Row="1" Grid.Column="0"
+                       FontSize="Small"
+                       VerticalOptions="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center" />
+
+                <simpleImageButton:SimpleImageButton Grid.Row="1" Grid.Column="1"
+                                                     WidthRequest="80"
+                                                     LabelLocation="Center"
+                                                     LabelText="Click Me"
+                                                     CornerRadius="0"
+                                                     ButtonBackgroundColor="Transparent"
+                                                     VisualStateManager.VisualStateGroups="{StaticResource CustomVisualStateGroupList}">
+                    <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                        <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
+                            <Setter Property="TextColor" Value="DeepSkyBlue" />
+                        </Style>
+                    </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                    <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                        <Style TargetType="Frame" BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                            <Setter Property="IsClippedToBounds" Value="False" />
+                            <Setter Property="HasShadow" Value="False" />
+                        </Style>
+                    </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                </simpleImageButton:SimpleImageButton>
 
             </Grid>
 
             <StackLayout Orientation="Horizontal">
                 <ImageButton Source="{x:StaticResource XamarinImage}" HeightRequest="25" />
                 <Button Image="{x:StaticResource XamarinImage}"
-                        Text="NativeButton" />
+                        Text="NativeButton"
+                        x:Name="NormalButton" 
+                        Clicked="NormalButton_OnClicked"/>
                 <Image WidthRequest="33"
                        HeightRequest="33"
                        VerticalOptions="Center"
