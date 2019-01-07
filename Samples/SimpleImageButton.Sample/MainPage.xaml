@@ -17,18 +17,18 @@
             <OnPlatform x:Key="XamarinImage"
                         x:TypeArguments="ImageSource">
                 <On Platform="iOS"
-                    Value="ButtonIcon" />
+                    Value="whiteXamarin" />
                 <On Platform="macOS"
-                    Value="AppIcon" />
+                    Value="whiteXamarin" />
                 <On Platform="Android"
                     Value="xamarin_white.png" />
             </OnPlatform>
             <OnPlatform x:Key="Isaac"
                         x:TypeArguments="ImageSource">
                 <On Platform="iOS"
-                    Value="icon" />
+                    Value="isaac" />
                 <On Platform="macOS"
-                    Value="AppIcon" />
+                    Value="isaac" />
                 <On Platform="Android"
                     Value="isaac.png" />
             </OnPlatform>

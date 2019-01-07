@@ -89,12 +89,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_512x512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_256x256%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon_256x256.png" />
-    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512%402x.png" />
-    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512.png" />
-    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512%402x-1.png" />
-    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_512x512-1.png" />
-    <ImageAsset Include="Assets.xcassets\DemoImage.imageset\icon_256x256.png" />
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512.png" />
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512.png" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
