@@ -115,13 +115,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ButtonIcon.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ButtonIcon.imageset\icon_512x512%402x.png" />
-    <ImageAsset Include="Assets.xcassets\ButtonIcon.imageset\icon_512x512.png" />
     <ImageAsset Include="Assets.xcassets\icon\.DS_Store" />
-    <ImageAsset Include="Assets.xcassets\icon.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\icon.imageset\icon_512x512.png" />
-    <ImageAsset Include="Assets.xcassets\icon.imageset\icon_512x512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512.png" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512.png" />
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -146,8 +146,8 @@
     <Content Include="Assets.xcassets\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets.xcassets\ButtonIcon.imageset\" />
-    <Folder Include="Assets.xcassets\icon.imageset\" />
+    <Folder Include="Assets.xcassets\isaac.imageset\" />
+    <Folder Include="Assets.xcassets\whiteXamarin.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

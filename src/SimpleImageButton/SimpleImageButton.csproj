@@ -3,6 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceAssemblyReference>true</ProduceAssemblyReference>
+    <Authors>Marius Muntean</Authors>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Owners>Marius M.</Owners>
+    <Summary>Provides an image-button that can be customized</Summary>
+    <PackageTags>xamarin.forms xaml c#</PackageTags>
+    <Title>SimpleImageButton .Net Standard Library</Title>
+    <Description>Provides an image-button. 
+The label can be positioned left, right, bottom, top, center or nowhere, w.r.t. the image.
+The image can either be shown or hidden.
+
+You can set the exact stle for the label, image and a Frame view.
+
+You can set the VisualStateGroup list as well.</Description>
   </PropertyGroup>
 
   <ItemGroup>
