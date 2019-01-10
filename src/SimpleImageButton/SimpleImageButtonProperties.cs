@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using Xamarin.Forms;
 using SimpleImageButton.Models;
 
@@ -205,6 +206,47 @@ namespace SimpleImageButton
         {
             get => (Style) GetValue(SimpleImageButtonFrameStyleProperty);
             set => SetValue(SimpleImageButtonFrameStyleProperty, value);
+        }
+
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create(
+            nameof(Command),
+            typeof(ICommand),
+            typeof(SimpleImageButton),
+            null,
+            BindingMode.OneWay,
+            propertyChanged: OncommandPropertyChanged
+        );
+
+        private static void OncommandPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            Console.WriteLine($"New Command: {newvalue}");
+
+            // Subscribe to CanExecuteChanged events if new command set
+            if (newvalue != null && newvalue is ICommand newCommand && bindable is SimpleImageButton imageButton)
+            {
+                newCommand.CanExecuteChanged += imageButton.OnCommandOnCanExecuteChanged;
+            }
+
+            if (oldvalue != null && oldvalue is ICommand oldCommand && bindable is SimpleImageButton simpleImageButton)
+            {
+                oldCommand.CanExecuteChanged -= simpleImageButton.OnCommandOnCanExecuteChanged;
+            }
+        }
+
+        private void OnCommandOnCanExecuteChanged(object sender, EventArgs e)
+        {
+            if (Command == null)
+            {
+                return;
+            }
+
+            VisualStateManager.GoToState(this, Command.CanExecute(null) ? NormalState : DisabledState);
+        }
+
+        public ICommand Command
+        {
+            get => (ICommand) GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
         }
     }
 }

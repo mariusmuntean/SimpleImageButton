@@ -7,8 +7,15 @@
              xmlns:local="clr-namespace:SimpleImageButton.Sample"
              xmlns:simpleImageButton="clr-namespace:SimpleImageButton;assembly=SimpleImageButton"
              xmlns:models="clr-namespace:SimpleImageButton.Models;assembly=SimpleImageButton"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
              BackgroundColor="White"
              x:Class="SimpleImageButton.Sample.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -66,296 +73,327 @@
             </VisualStateGroupList>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ScrollView Orientation="Both"
-                VerticalScrollBarVisibility="Default"
-                HorizontalScrollBarVisibility="Default"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="CenterAndExpand">
-        <ScrollView.Margin>
-            <OnPlatform x:TypeArguments="Thickness" Default="0">
-                <On Platform="iOS" Value="0,20,0,0" />
-            </OnPlatform>
-        </ScrollView.Margin>
 
-        <StackLayout Orientation="Vertical"
-                     VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="FillAndExpand">
-            <StackLayout.Resources>
-                <Style TargetType="Label" x:Key="SectionTitleStyle">
-                    <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                    <Setter Property="HorizontalTextAlignment" Value="Start" />
-                    <Setter Property="FontSize" Value="Large" />
-                    <Setter Property="Margin" Value="5,0" />
-                    <Setter Property="TextColor" Value="DimGray" />
-                </Style>
-                <Style TargetType="Grid" x:Key="SectionLayoutStyle">
-                    <Setter Property="Margin" Value="5,0,5,10" />
-                    <Setter Property="Padding" Value="10" />
-                    <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                    <Setter Property="BackgroundColor" Value="#FFEDEDED" />
-                </Style>
-            </StackLayout.Resources>
-            <!-- Label Locations -->
-            <Label Text="4 Label Locations" Style="{StaticResource SectionTitleStyle}" />
-            <Grid Style="{StaticResource SectionLayoutStyle}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <simpleImageButton:SimpleImageButton Grid.Column="0"
-                                                     HeightRequest="40"
-                                                     LabelText="left"
-                                                     LabelLocation="Left"
-                                                     ImageSource="{x:StaticResource XamarinImage}" />
-                <simpleImageButton:SimpleImageButton Grid.Column="1"
-                                                     WidthRequest="40"
-                                                     LabelText="top"
-                                                     LabelLocation="Top"
-                                                     ImageSource="{x:StaticResource XamarinImage}" />
-                <simpleImageButton:SimpleImageButton Grid.Column="2"
-                                                     HeightRequest="40"
-                                                     LabelText="right"
-                                                     LabelLocation="Right"
-                                                     ImageSource="{x:StaticResource XamarinImage}" />
-                <simpleImageButton:SimpleImageButton Grid.Column="3"
-                                                     WidthRequest="40"
-                                                     LabelText="bottom"
-                                                     LabelLocation="Bottom"
-                                                     ImageSource="{x:StaticResource XamarinImage}" />
-            </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <!-- No Text/Image -->
-            <Label Text="Only Text or Only Image" Style="{StaticResource SectionTitleStyle}" />
-            <Grid Style="{StaticResource SectionLayoutStyle}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <simpleImageButton:SimpleImageButton Grid.Column="0"
-                                                     WidthRequest="40"
-                                                     LabelLocation="None"
-                                                     ImageSource="{x:StaticResource XamarinImage}" />
-                <simpleImageButton:SimpleImageButton Grid.Column="1"
-                                                     LabelText="no image"
-                                                     LabelLocation="Center"
-                                                     HeightRequest="40" />
-            </Grid>
+        <Label Grid.Row="0"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand"
+               Text="{Binding Count}" />
 
-            <!-- Enabled/Disabled Button-->
-            <Label Text="Enabled/Disabled Button" Style="{StaticResource SectionTitleStyle}" />
-            <Grid Style="{StaticResource SectionLayoutStyle}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Switch x:Name="ButtonSwitch" IsToggled="True" VerticalOptions="Center" />
-                <simpleImageButton:SimpleImageButton Grid.Column="1"
-                                                     IsEnabled="{Binding Source={x:Reference ButtonSwitch}, Path=IsToggled, Mode=OneWay}"
-                                                     HeightRequest="40"
-                                                     ImageSource="{x:StaticResource XamarinImage}"
-                                                     LabelText=":D"
-                                                     LabelLocation="Right" />
-            </Grid>
+        <ScrollView Grid.Row="1"
+                    Orientation="Both"
+                    VerticalScrollBarVisibility="Default"
+                    HorizontalScrollBarVisibility="Default"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            <ScrollView.Margin>
+                <OnPlatform x:TypeArguments="Thickness" Default="0">
+                    <On Platform="iOS" Value="0,20,0,0" />
+                </OnPlatform>
+            </ScrollView.Margin>
 
-            <!-- Little Customization-->
-            <Label Text="Little Customization" Style="{StaticResource SectionTitleStyle}" />
-            <Grid Style="{StaticResource SectionLayoutStyle}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.Resources>
-                    <Style TargetType="Label">
-                        <Setter Property="VerticalOptions" Value="Center" />
-                        <Setter Property="FontSize" Value="Small" />
-                        <Setter Property="TextColor" Value="Gray" />
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand">
+                <StackLayout.Resources>
+                    <Style TargetType="Label" x:Key="SectionTitleStyle">
+                        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                        <Setter Property="HorizontalTextAlignment" Value="Start" />
+                        <Setter Property="FontSize" Value="Large" />
+                        <Setter Property="Margin" Value="5,0" />
+                        <Setter Property="TextColor" Value="DimGray" />
                     </Style>
-                </Grid.Resources>
-                <Label Text="Large Corner Radius" />
-                <simpleImageButton:SimpleImageButton Grid.Row="0"
-                                                     Grid.Column="1"
-                                                     HeightRequest="40"
-                                                     ImageSource="{x:StaticResource XamarinImage}"
-                                                     CornerRadius="30"
-                                                     LabelText=":D"
-                                                     LabelLocation="Right" />
-                <Label Text="Background Color" Grid.Row="1" Grid.Column="0" />
-                <simpleImageButton:SimpleImageButton Grid.Row="1"
-                                                     Grid.Column="1"
-                                                     HeightRequest="40"
-                                                     ImageSource="{x:StaticResource XamarinImage}"
-                                                     ButtonBackgroundColor="Fuchsia"
-                                                     LabelText=":D"
-                                                     LabelLocation="Right" />
-
-                <Label Text="Round Button A" Grid.Row="2" Grid.Column="0" />
-                <BoxView Grid.Row="2"
-                         Grid.Column="1"
-                         CornerRadius="33"
-                         HeightRequest="66"
-                         WidthRequest="66"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center"
-                         X="{Binding Source={x:Reference RoundButtonA}, Path=X}"
-                         Y="{Binding Source={x:Reference RoundButtonA}, Path=Y}"
-                         BackgroundColor="Aqua"
-                         Scale="{Binding Source={x:Reference RoundButtonA}, Path=Scale}" />
-                <simpleImageButton:SimpleImageButton Grid.Row="2"
-                                                     Grid.Column="1"
-                                                     x:Name="RoundButtonA"
-                                                     HeightRequest="60"
-                                                     CornerRadius="30"
-                                                     ImageSource="{x:StaticResource Isaac}"
-                                                     LabelLocation="None">
-                    <simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
-                        <Style TargetType="Image" BasedOn="{StaticResource SimpleImageButtonImageStyle}">
-                            <Setter Property="Margin" Value="0" />
-                        </Style>
-                    </simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
-                </simpleImageButton:SimpleImageButton>
-
-                <Label Text="Round Button B" Grid.Row="3" Grid.Column="0" />
-                <simpleImageButton:SimpleImageButton Grid.Row="3"
-                                                     Grid.Column="1"
-                                                     LabelLocation="None"
-                                                     WidthRequest="60"
-                                                     CornerRadius="30"
-                                                     ImageSource="{x:StaticResource XamarinImage}">
-                    <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                        <Style TargetType="Frame" BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
-                            <Setter Property="BackgroundColor" Value="Transparent" />
-                            <Setter Property="BorderColor" Value="DeepPink" />
-                        </Style>
-                    </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                </simpleImageButton:SimpleImageButton>
-
-            </Grid>
-
-
-            <!-- Multiple Customization-->
-            <Label Text="Multiple Customization" Style="{StaticResource SectionTitleStyle}" />
-            <Grid Style="{StaticResource SectionLayoutStyle}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.Resources>
-                    <Style TargetType="Label">
-                        <Setter Property="VerticalOptions" Value="Center" />
-                        <Setter Property="FontSize" Value="Small" />
-                        <Setter Property="TextColor" Value="Gray" />
+                    <Style TargetType="Grid" x:Key="SectionLayoutStyle">
+                        <Setter Property="Margin" Value="5,0,5,10" />
+                        <Setter Property="Padding" Value="10" />
+                        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                        <Setter Property="BackgroundColor" Value="#FFEDEDED" />
                     </Style>
-                </Grid.Resources>
+                </StackLayout.Resources>
+                <!-- Label Locations -->
+                <Label Text="4 Label Locations" Style="{StaticResource SectionTitleStyle}" />
+                <Grid Style="{StaticResource SectionLayoutStyle}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <simpleImageButton:SimpleImageButton Grid.Column="0"
+                                                         HeightRequest="40"
+                                                         LabelText="left"
+                                                         LabelLocation="Left"
+                                                         Command="{Binding Command}"
+                                                         ImageSource="{x:StaticResource XamarinImage}" />
+                    <simpleImageButton:SimpleImageButton Grid.Column="1"
+                                                         WidthRequest="40"
+                                                         LabelText="top"
+                                                         LabelLocation="Top"
+                                                         Command="{Binding Command}"
+                                                         ImageSource="{x:StaticResource XamarinImage}" />
+                    <simpleImageButton:SimpleImageButton Grid.Column="2"
+                                                         HeightRequest="40"
+                                                         LabelText="right"
+                                                         LabelLocation="Right"
+                                                         Command="{Binding Command}"
+                                                         ImageSource="{x:StaticResource XamarinImage}" />
+                    <simpleImageButton:SimpleImageButton Grid.Column="3"
+                                                         WidthRequest="40"
+                                                         LabelText="bottom"
+                                                         LabelLocation="Bottom"
+                                                         Command="{Binding Command}"
+                                                         ImageSource="{x:StaticResource XamarinImage}" />
+                </Grid>
 
-                <Label Text="Round Button w/ Initials/Sign"
-                       Grid.Row="0" Grid.Column="0"
-                       VerticalOptions="Center"
-                       FontSize="Small" />
-                <StackLayout Grid.Row="0"
-                             Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
-                    <simpleImageButton:SimpleImageButton WidthRequest="60"
+                <!-- No Text/Image -->
+                <Label Text="Only Text or Only Image" Style="{StaticResource SectionTitleStyle}" />
+                <Grid Style="{StaticResource SectionLayoutStyle}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <simpleImageButton:SimpleImageButton Grid.Column="0"
+                                                         WidthRequest="40"
+                                                         LabelLocation="None"
+                                                         Command="{Binding Command}"
+                                                         ImageSource="{x:StaticResource XamarinImage}" />
+                    <simpleImageButton:SimpleImageButton Grid.Column="1"
+                                                         LabelText="no image"
+                                                         LabelLocation="Center"
+                                                         Command="{Binding Command}"
+                                                         HeightRequest="40" />
+                </Grid>
+
+                <!-- Enabled/Disabled Button-->
+                <Label Text="Enabled/Disabled Button" Style="{StaticResource SectionTitleStyle}" />
+                <Grid Style="{StaticResource SectionLayoutStyle}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Switch x:Name="ButtonSwitch" IsToggled="True" VerticalOptions="Center" />
+                    <simpleImageButton:SimpleImageButton Grid.Column="1"
+                                                         IsEnabled="{Binding Source={x:Reference ButtonSwitch}, Path=IsToggled, Mode=OneWay}"
+                                                         HeightRequest="40"
+                                                         ImageSource="{x:StaticResource XamarinImage}"
+                                                         LabelText=":D"
+                                                         LabelLocation="Right"
+                                                         Command="{Binding Command}" />
+                </Grid>
+
+                <!-- Little Customization-->
+                <Label Text="Little Customization" Style="{StaticResource SectionTitleStyle}" />
+                <Grid Style="{StaticResource SectionLayoutStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="VerticalOptions" Value="Center" />
+                            <Setter Property="FontSize" Value="Small" />
+                            <Setter Property="TextColor" Value="Gray" />
+                        </Style>
+                    </Grid.Resources>
+                    <Label Text="Large Corner Radius" />
+                    <simpleImageButton:SimpleImageButton Grid.Row="0"
+                                                         Grid.Column="1"
+                                                         HeightRequest="40"
+                                                         ImageSource="{x:StaticResource XamarinImage}"
+                                                         CornerRadius="30"
+                                                         LabelText=":D"
+                                                         LabelLocation="Right"
+                                                         Command="{Binding Command}" />
+                    <Label Text="Background Color" Grid.Row="1" Grid.Column="0" />
+                    <simpleImageButton:SimpleImageButton Grid.Row="1"
+                                                         Grid.Column="1"
+                                                         HeightRequest="40"
+                                                         ImageSource="{x:StaticResource XamarinImage}"
+                                                         ButtonBackgroundColor="Fuchsia"
+                                                         LabelText=":D"
+                                                         LabelLocation="Right"
+                                                         Command="{Binding Command}" />
+
+                    <Label Text="Round Button A" Grid.Row="2" Grid.Column="0" />
+                    <BoxView Grid.Row="2"
+                             Grid.Column="1"
+                             CornerRadius="33"
+                             HeightRequest="66"
+                             WidthRequest="66"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             X="{Binding Source={x:Reference RoundButtonA}, Path=X}"
+                             Y="{Binding Source={x:Reference RoundButtonA}, Path=Y}"
+                             BackgroundColor="Aqua"
+                             Scale="{Binding Source={x:Reference RoundButtonA}, Path=Scale}" />
+                    <simpleImageButton:SimpleImageButton Grid.Row="2"
+                                                         Grid.Column="1"
+                                                         x:Name="RoundButtonA"
                                                          HeightRequest="60"
                                                          CornerRadius="30"
-                                                         LabelLocation="Center"
-                                                         LabelText="JD">
+                                                         ImageSource="{x:StaticResource Isaac}"
+                                                         LabelLocation="None"
+                                                         Command="{Binding Command}">
+                        <simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
+                            <Style TargetType="Image" BasedOn="{StaticResource SimpleImageButtonImageStyle}">
+                                <Setter Property="Margin" Value="0" />
+                            </Style>
+                        </simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
+                    </simpleImageButton:SimpleImageButton>
+
+                    <Label Text="Round Button B" Grid.Row="3" Grid.Column="0" />
+                    <simpleImageButton:SimpleImageButton Grid.Row="3"
+                                                         Grid.Column="1"
+                                                         LabelLocation="None"
+                                                         WidthRequest="60"
+                                                         CornerRadius="30"
+                                                         ImageSource="{x:StaticResource XamarinImage}"
+                                                         Command="{Binding Command}">
                         <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                            <Style TargetType="Frame"
-                                   BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
-                                <Setter Property="BackgroundColor" Value="DeepSkyBlue" />
+                            <Style TargetType="Frame" BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                                <Setter Property="BackgroundColor" Value="Transparent" />
                                 <Setter Property="BorderColor" Value="DeepPink" />
-                                <Setter Property="HasShadow" Value="True" />
                             </Style>
                         </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                        <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
-                            <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
-                                <Setter Property="FontSize" Value="32" />
-                                <Setter Property="FontFamily" Value="GillSans-SemiBold" />
-                                <Setter Property="TextColor" Value="White" />
-                                <Setter Property="Margin" Value="7" />
-                            </Style>
-                        </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
                     </simpleImageButton:SimpleImageButton>
-                    <simpleImageButton:SimpleImageButton WidthRequest="60"
-                                                         HeightRequest="60"
+
+                </Grid>
+
+
+                <!-- Multiple Customization-->
+                <Label Text="Multiple Customization" Style="{StaticResource SectionTitleStyle}" />
+                <Grid Style="{StaticResource SectionLayoutStyle}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="VerticalOptions" Value="Center" />
+                            <Setter Property="FontSize" Value="Small" />
+                            <Setter Property="TextColor" Value="Gray" />
+                        </Style>
+                    </Grid.Resources>
+
+                    <Label Text="Round Button w/ Initials/Sign"
+                           Grid.Row="0" Grid.Column="0"
+                           VerticalOptions="Center"
+                           FontSize="Small" />
+                    <StackLayout Grid.Row="0"
+                                 Grid.Column="1" Orientation="Horizontal" HorizontalOptions="Center">
+                        <simpleImageButton:SimpleImageButton WidthRequest="60"
+                                                             HeightRequest="60"
+                                                             CornerRadius="30"
+                                                             LabelLocation="Center"
+                                                             LabelText="JD"
+                                                             Command="{Binding Command}">
+                            <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                                <Style TargetType="Frame"
+                                       BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                                    <Setter Property="BackgroundColor" Value="DeepSkyBlue" />
+                                    <Setter Property="BorderColor" Value="DeepPink" />
+                                    <Setter Property="HasShadow" Value="True" />
+                                </Style>
+                            </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                            <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                                <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
+                                    <Setter Property="FontSize" Value="32" />
+                                    <Setter Property="FontFamily" Value="GillSans-SemiBold" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="Margin" Value="7" />
+                                </Style>
+                            </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                        </simpleImageButton:SimpleImageButton>
+                        <simpleImageButton:SimpleImageButton WidthRequest="60"
+                                                             HeightRequest="60"
+                                                             LabelLocation="Center"
+                                                             LabelText="+"
+                                                             Command="{Binding Command}">
+                            <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                                <Style TargetType="Frame"
+                                       BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                                    <Setter Property="BackgroundColor" Value="DeepSkyBlue" />
+                                    <Setter Property="BorderColor" Value="DeepSkyBlue" />
+                                    <Setter Property="HasShadow" Value="True" />
+                                    <Setter Property="Padding" Value="5" />
+                                    <Setter Property="CornerRadius" Value="30" />
+                                    <Setter Property="IsClippedToBounds" Value="False" />
+                                </Style>
+                            </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                            <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                                <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
+                                    <Setter Property="FontSize" Value="32" />
+                                    <Setter Property="FontFamily" Value="GillSans-SemiBold" />
+                                    <Setter Property="TextColor" Value="White" />
+                                    <Setter Property="Margin" Value="7" />
+                                </Style>
+                            </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                        </simpleImageButton:SimpleImageButton>
+
+                    </StackLayout>
+
+                    <!-- Different Visual States -->
+                    <Label Text="Custom Visual State Behavior"
+                           Grid.Row="1" Grid.Column="0" />
+
+                    <simpleImageButton:SimpleImageButton Grid.Row="1" Grid.Column="1"
+                                                         WidthRequest="80"
                                                          LabelLocation="Center"
-                                                         LabelText="+">
-                        <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                            <Style TargetType="Frame"
-                                   BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
-                                <Setter Property="BackgroundColor" Value="DeepSkyBlue" />
-                                <Setter Property="BorderColor" Value="DeepSkyBlue" />
-                                <Setter Property="HasShadow" Value="True" />
-                                <Setter Property="Padding" Value="5" />
-                                <Setter Property="CornerRadius" Value="30" />
-                                <Setter Property="IsClippedToBounds" Value="False" />
-                            </Style>
-                        </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                                                         LabelText="Click Me"
+                                                         Command="{Binding Command}"
+                                                         CornerRadius="0"
+                                                         ButtonBackgroundColor="Transparent"
+                                                         VisualStateManager.VisualStateGroups="{StaticResource CustomVisualStateGroupList}">
                         <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
                             <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
-                                <Setter Property="FontSize" Value="32" />
-                                <Setter Property="FontFamily" Value="GillSans-SemiBold" />
-                                <Setter Property="TextColor" Value="White" />
-                                <Setter Property="Margin" Value="7" />
+                                <Setter Property="TextColor" Value="DeepSkyBlue" />
                             </Style>
                         </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
+                        <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
+                            <Style TargetType="Frame" BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
+                                <Setter Property="IsClippedToBounds" Value="False" />
+                                <Setter Property="HasShadow" Value="False" />
+                            </Style>
+                        </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
                     </simpleImageButton:SimpleImageButton>
 
+                </Grid>
+
+                <StackLayout Orientation="Horizontal">
+                    <ImageButton Source="{x:StaticResource XamarinImage}" HeightRequest="25" />
+                    <Button Image="{x:StaticResource XamarinImage}"
+                            Text="NativeButton"
+                            x:Name="NormalButton"
+                            Clicked="NormalButton_OnClicked" />
+                    <Image WidthRequest="33"
+                           HeightRequest="33"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Source="{x:StaticResource XamarinImage}" />
                 </StackLayout>
-
-                <!-- Different Visual States -->
-                <Label Text="Custom Visual State Behavior"
-                       Grid.Row="1" Grid.Column="0" />
-
-                <simpleImageButton:SimpleImageButton Grid.Row="1" Grid.Column="1"
-                                                     WidthRequest="80"
-                                                     LabelLocation="Center"
-                                                     LabelText="Click Me"
-                                                     CornerRadius="0"
-                                                     ButtonBackgroundColor="Transparent"
-                                                     VisualStateManager.VisualStateGroups="{StaticResource CustomVisualStateGroupList}">
-                    <simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
-                        <Style TargetType="Label" BasedOn="{StaticResource SimpleImageButtonLabelStyle}">
-                            <Setter Property="TextColor" Value="DeepSkyBlue" />
-                        </Style>
-                    </simpleImageButton:SimpleImageButton.SimpleImageButtonLabelStyle>
-                    <simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                        <Style TargetType="Frame" BasedOn="{StaticResource SimpleImageButtonFrameStyle}">
-                            <Setter Property="IsClippedToBounds" Value="False" />
-                            <Setter Property="HasShadow" Value="False" />
-                        </Style>
-                    </simpleImageButton:SimpleImageButton.SimpleImageButtonFrameStyle>
-                </simpleImageButton:SimpleImageButton>
-
-            </Grid>
-
-            <StackLayout Orientation="Horizontal">
-                <ImageButton Source="{x:StaticResource XamarinImage}" HeightRequest="25" />
-                <Button Image="{x:StaticResource XamarinImage}"
-                        Text="NativeButton"
-                        x:Name="NormalButton"
-                        Clicked="NormalButton_OnClicked" />
-                <Image WidthRequest="33"
-                       HeightRequest="33"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       Source="{x:StaticResource XamarinImage}" />
             </StackLayout>
-        </StackLayout>
 
-    </ScrollView>
+        </ScrollView>
+
+
+    </Grid>
 
 </ContentPage>

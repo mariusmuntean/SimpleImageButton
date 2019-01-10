@@ -8,7 +8,7 @@ namespace SimpleImageButton
     public partial class SimpleImageButton : ContentView, ITouchAndPressEffectConsumer
     {
         public static readonly string VisualStateGroupName = "CommonButtonStates";
-        
+
         public static readonly string NormalState = "normal";
         public static readonly string PressedState = "pressed";
         public static readonly string DisabledState = "disabled";
@@ -21,7 +21,6 @@ namespace SimpleImageButton
             SimpleImageButtonFrameStyle = (Style) Resources["SimpleImageButtonFrameStyle"];
             SimpleImageButtonLabelStyle = (Style) Resources["SimpleImageButtonLabelStyle"];
             SimpleImageButtonImageStyle = (Style) Resources["SimpleImageButtonImageStyle"];
-
         }
 
         public void ConsumeEvent(EventType gestureType)
@@ -34,6 +33,7 @@ namespace SimpleImageButton
                 case EventType.Cancelled:
                 case EventType.Released:
                     VisualStateManager.GoToState(ME, NormalState);
+                    Command?.Execute(null);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gestureType), gestureType, null);
