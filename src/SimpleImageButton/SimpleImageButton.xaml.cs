@@ -7,6 +7,12 @@ namespace SimpleImageButton
 {
     public partial class SimpleImageButton : ContentView, ITouchAndPressEffectConsumer
     {
+        // Style names - constants to be used easier by the library consumers
+        public const string FrameStyleName = "SimpleImageButtonFrameStyle";
+        public const string LabelStyleName = "SimpleImageButtonLabelStyle";
+        public const string ImageStyleName = "SimpleImageButtonImageStyle";
+
+        // Visual states - constants to be used easier by the library consumer
         public static readonly string VisualStateGroupName = "CommonButtonStates";
 
         public static readonly string NormalState = "normal";
@@ -18,9 +24,9 @@ namespace SimpleImageButton
             InitializeComponent();
 
             // Set default values
-            SimpleImageButtonFrameStyle = (Style) Resources["SimpleImageButtonFrameStyle"];
-            SimpleImageButtonLabelStyle = (Style) Resources["SimpleImageButtonLabelStyle"];
-            SimpleImageButtonImageStyle = (Style) Resources["SimpleImageButtonImageStyle"];
+            SimpleImageButtonFrameStyle = (Style) Resources[FrameStyleName];
+            SimpleImageButtonLabelStyle = (Style) Resources[LabelStyleName];
+            SimpleImageButtonImageStyle = (Style) Resources[ImageStyleName];
         }
 
         public void ConsumeEvent(EventType gestureType)
@@ -32,8 +38,13 @@ namespace SimpleImageButton
                     break;
                 case EventType.Cancelled:
                 case EventType.Released:
-                    VisualStateManager.GoToState(ME, NormalState);
+
+                    // Execute any command
+                    // ToDo: decide if the length of the press shall be considered
                     Command?.Execute(null);
+
+                    // Update the VSM state
+                    VisualStateManager.GoToState(ME, NormalState);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gestureType), gestureType, null);
