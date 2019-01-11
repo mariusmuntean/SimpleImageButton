@@ -22,6 +22,13 @@ namespace SimpleImageButton.macOS
                 _touchAndPressGestureRecognizer = new TouchAndPressGestureRecognizer(touchAndPressEffectConsumer);
                 _view.AddGestureRecognizer(_touchAndPressGestureRecognizer);
             }
+
+            // Ensure the button scales with respect to its center - there seems to be a bug on macOS so this is necessary
+            if (Element is VisualElement visualElement)
+            {
+                visualElement.AnchorX = 1.0;
+                visualElement.AnchorY = 1.0;
+            }
         }
 
 
