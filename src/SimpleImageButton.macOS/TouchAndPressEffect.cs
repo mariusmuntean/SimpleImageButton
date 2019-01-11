@@ -1,10 +1,11 @@
 ﻿using AppKit;
 using SimpleImageButton.Contracts;
+using SimpleImageButton.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
 
-[assembly: ResolutionGroupName("marius")]
-[assembly: ExportEffect(typeof(SimpleImageButton.macOS.TouchAndPressEffect), "TouchAndPressEffect")]
+[assembly: ResolutionGroupName(TouchAndPressEffect.EffectIdPrefix)]
+[assembly: ExportEffect(typeof(SimpleImageButton.macOS.TouchAndPressEffect), nameof(SimpleImageButton.macOS.TouchAndPressEffect))]
 
 namespace SimpleImageButton.macOS
 {
@@ -31,7 +32,6 @@ namespace SimpleImageButton.macOS
             }
         }
 
-
         protected override void OnDetached()
         {
             if (_view != null && _touchAndPressGestureRecognizer != null)
@@ -39,7 +39,6 @@ namespace SimpleImageButton.macOS
                 _view.RemoveGestureRecognizer(_touchAndPressGestureRecognizer);
             }
         }
-
 
         private class TouchAndPressGestureRecognizer : NSGestureRecognizer
         {

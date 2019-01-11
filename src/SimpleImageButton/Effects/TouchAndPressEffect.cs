@@ -6,7 +6,7 @@ namespace SimpleImageButton.Effects
     {
         public const string EffectIdPrefix = "de.marius";
 
-        public TouchAndPressEffect() : base("marius.TouchAndPressEffect")
+        public TouchAndPressEffect() : base($"{EffectIdPrefix}.{nameof(TouchAndPressEffect)}")
         {
         }
     }

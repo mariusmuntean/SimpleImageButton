@@ -115,7 +115,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\icon\.DS_Store" />
     <ImageAsset Include="Assets.xcassets\isaac.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512.png" />
     <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512%402x.png" />
@@ -141,9 +140,6 @@
       <Project>{695F8122-EF0E-4663-BE70-427CFF8B2DC0}</Project>
       <Name>SimpleImageButton.Sample</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets.xcassets\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\isaac.imageset\" />

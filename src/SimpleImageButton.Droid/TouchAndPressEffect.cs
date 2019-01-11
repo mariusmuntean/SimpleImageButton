@@ -1,12 +1,13 @@
 using System;
 using Android.Views;
 using SimpleImageButton.Contracts;
+using SimpleImageButton.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using View = Android.Views.View;
 
-[assembly: ResolutionGroupName("marius")]
-[assembly: ExportEffect(typeof(SimpleImageButton.Droid.TouchAndPressEffect), "TouchAndPressEffect")]
+[assembly: ResolutionGroupName(TouchAndPressEffect.EffectIdPrefix)]
+[assembly: ExportEffect(typeof(SimpleImageButton.Droid.TouchAndPressEffect), nameof(SimpleImageButton.Droid.TouchAndPressEffect))]
 
 namespace SimpleImageButton.Droid
 {

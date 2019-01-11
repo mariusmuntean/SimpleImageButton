@@ -1,11 +1,12 @@
 ﻿using Foundation;
 using SimpleImageButton.Contracts;
+using SimpleImageButton.Effects;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ResolutionGroupName("marius")]
-[assembly: ExportEffect(typeof(SimpleImageButton.iOS.TouchAndPressEffect), "TouchAndPressEffect")]
+[assembly: ResolutionGroupName(TouchAndPressEffect.EffectIdPrefix)]
+[assembly: ExportEffect(typeof(SimpleImageButton.iOS.TouchAndPressEffect), nameof(SimpleImageButton.iOS.TouchAndPressEffect))]
 
 namespace SimpleImageButton.iOS
 {
@@ -82,7 +83,6 @@ namespace SimpleImageButton.iOS
                 base.TouchesCancelled(touches, evt);
                 _touchAndPressEffectConsumer.ConsumeEvent(EventType.Cancelled);
             }
-
         }
     }
 }
