@@ -115,12 +115,24 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\isaac.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512.png" />
-    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512%402x.png" />
-    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512.png" />
-    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512%402x.png" />
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\isaac.imageset\icon_512x512%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\whiteXamarin.imageset\icon_512x512%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

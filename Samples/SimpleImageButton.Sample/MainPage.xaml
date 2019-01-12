@@ -29,6 +29,8 @@
                     Value="whiteXamarin" />
                 <On Platform="Android"
                     Value="xamarin_white.png" />
+                <On Platform="UWP"
+                    Value="Assets/whiteXamarin.png" />
             </OnPlatform>
             <OnPlatform x:Key="Isaac"
                         x:TypeArguments="ImageSource">
@@ -38,6 +40,8 @@
                     Value="isaac" />
                 <On Platform="Android"
                     Value="isaac.png" />
+                <On Platform="UWP"
+                    Value="Assets/isaac.png" />
             </OnPlatform>
             <OnPlatform x:Key="BlueXamarinImage"
                         x:TypeArguments="ImageSource">
@@ -47,6 +51,8 @@
                     Value="AppIcon" />
                 <On Platform="Android"
                     Value="icon.png" />
+                <On Platform="UWP"
+                    Value="Assets/appIcon.png" />
             </OnPlatform>
             <Style x:Key="AdvancedLabelStyle"
                    TargetType="Label"
@@ -227,7 +233,7 @@
                                                          Command="{Binding Command}" />
 
                     <Label Text="Round Button A" Grid.Row="2" Grid.Column="0" />
-                    <BoxView Grid.Row="2"
+                    <!--<BoxView Grid.Row="2"
                              Grid.Column="1"
                              CornerRadius="33"
                              HeightRequest="66"
@@ -237,21 +243,30 @@
                              X="{Binding Source={x:Reference RoundButtonA}, Path=X}"
                              Y="{Binding Source={x:Reference RoundButtonA}, Path=Y}"
                              BackgroundColor="Aqua"
-                             Scale="{Binding Source={x:Reference RoundButtonA}, Path=Scale}" />
-                    <simpleImageButton:SimpleImageButton Grid.Row="2"
-                                                         Grid.Column="1"
-                                                         x:Name="RoundButtonA"
-                                                         HeightRequest="60"
-                                                         CornerRadius="30"
-                                                         ImageSource="{x:StaticResource Isaac}"
-                                                         LabelLocation="None"
-                                                         Command="{Binding Command}">
-                        <simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
-                            <Style TargetType="Image" BasedOn="{StaticResource SimpleImageButtonImageStyle}">
-                                <Setter Property="Margin" Value="0" />
-                            </Style>
-                        </simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
-                    </simpleImageButton:SimpleImageButton>
+                             Scale="{Binding Source={x:Reference RoundButtonA}, Path=Scale}" />-->
+                    <Frame Grid.Row="2"
+                           Grid.Column="1"
+                           CornerRadius="33"
+                           Padding="3"
+                           BackgroundColor="Aqua"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Scale="{Binding Source={x:Reference RoundButtonA}, Path=Scale}">
+                        <simpleImageButton:SimpleImageButton x:Name="RoundButtonA"
+                                                             HeightRequest="60"
+                                                             CornerRadius="30"
+                                                             ImageSource="{x:StaticResource Isaac}"
+                                                             LabelLocation="None"
+                                                             Command="{Binding Command}">
+                            <simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
+                                <Style TargetType="Image" BasedOn="{StaticResource SimpleImageButtonImageStyle}">
+                                    <Setter Property="Margin" Value="0" />
+                                </Style>
+                            </simpleImageButton:SimpleImageButton.SimpleImageButtonImageStyle>
+                        </simpleImageButton:SimpleImageButton>
+
+                    </Frame>
+
 
                     <Label Text="Round Button B" Grid.Row="3" Grid.Column="0" />
                     <simpleImageButton:SimpleImageButton Grid.Row="3"

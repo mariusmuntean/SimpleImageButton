@@ -28,7 +28,6 @@ namespace SimpleImageButton.iOS
             }
         }
 
-
         protected override void OnDetached()
         {
             if (_view != null && _touchAndPressGestureRecognizer != null)
