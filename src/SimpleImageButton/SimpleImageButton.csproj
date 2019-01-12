@@ -20,6 +20,12 @@ You can set the exact style for the label, image and a Frame view.
 
 
 You can set the VisualStateGroup list as well.</Description>
+    <PackageLicenseUrl>https://github.com/mariusmuntean/SimpleImageButton/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/mariusmuntean/SimpleImageButton</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/mariusmuntean/SimpleImageButton</PackageProjectUrl>
+    <PackageReleaseNotes>First release!
+See the sampes to get a feeling of what you can achieve.</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
