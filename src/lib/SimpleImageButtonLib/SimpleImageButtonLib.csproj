@@ -1,0 +1,59 @@
+﻿<!--<Project Sdk="Microsoft.NET.Sdk">-->
+<Project Sdk="MSBuild.Sdk.Extras/1.6.47">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <DefaultLanguage>en-US</DefaultLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.1" PrivateAssets="all" />-->
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
+    <Reference Include="netstandard" />
+    <!--<PackageReference Update="NETStandard.Library" PrivateAssets="all" />-->
+
+    <!-- let all platforms access the code in SimpleImageButton -->
+    <!--<Compile Include="SimpleImageButton\**\*.cs" />-->
+
+    <Compile Remove="Platforms\**\*.cs;Resources\**\*.cs" />
+    <!-- This is here so that the conditionally included files below are all visible in VS -->
+    <None Include="Platforms\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <Reference Remove="netstandard" />
+    <Compile Include="Platforms\netstandard\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0.16299' ">
+    <Compile Include="Platforms\uwp\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
+    <Compile Include="Platforms\ios\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.Mac20' ">
+    <Compile Include="Platforms\mac\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'MonoAndroid81' ">
+    <Compile Include="Platforms\android\**\*.cs" />
+    <Compile Include="Resources\**\*.cs" />
+    <AndroidResource Include="Resources\**\*.axml" />
+    <AndroidResource Include="Resources\**\*.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SimpleImageButton\SimpleImageButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="SimpleImageButton\SimpleImageButtonResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <!--<Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />-->
+
+</Project>
