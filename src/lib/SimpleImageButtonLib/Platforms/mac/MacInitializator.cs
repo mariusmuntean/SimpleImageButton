@@ -1,13 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using Foundation;
 using Xamarin.Forms.Platform.MacOS;
 
-namespace SimpleImageButton.macOS
+namespace SimpleImageButtonLib.Platforms.mac
 {
     [Preserve(AllMembers = true)]
-    public static class Initializator
+    public static class MacInitializator
     {
         private static List<PlatformEffect> _allEffects = new List<PlatformEffect>();
 
@@ -16,7 +16,7 @@ namespace SimpleImageButton.macOS
         /// </summary>
         public static void Init()
         {
-            _allEffects = new List<PlatformEffect>(typeof(Initializator).Assembly.GetTypes()
+            _allEffects = new List<PlatformEffect>(typeof(MacInitializator).Assembly.GetTypes()
                 .Where(t => typeof(PlatformEffect).IsAssignableFrom(t))
                 .Select(t => (PlatformEffect) Activator.CreateInstance(t)));
         }

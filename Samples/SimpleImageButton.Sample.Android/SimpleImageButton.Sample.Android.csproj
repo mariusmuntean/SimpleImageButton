@@ -85,16 +85,15 @@
     <AndroidResource Include="Resources\drawable\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
     <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SimpleImageButton.Droid\SimpleImageButton.Droid.csproj">
-      <Project>{bfc8a443-30d4-4da2-a568-6e865eb935aa}</Project>
-      <Name>SimpleImageButton.Droid</Name>
+    <ProjectReference Include="..\..\src\lib\SimpleImageButtonLib\SimpleImageButtonLib.csproj">
+      <Project>{dc67550a-7557-469d-a0f8-c67b4125659d}</Project>
+      <Name>SimpleImageButtonLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj">
       <Project>{695F8122-EF0E-4663-BE70-427CFF8B2DC0}</Project>

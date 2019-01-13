@@ -7,7 +7,7 @@ using Xamarin.Forms.Platform.Android;
 namespace SimpleImageButtonLib.Platforms.android
 {
     [Preserve(AllMembers = true)]
-    public static class Initializator
+    public static class AndroidInitializator
     {
         static List<PlatformEffect> _allEffects = new List<PlatformEffect>();
 
@@ -16,7 +16,7 @@ namespace SimpleImageButtonLib.Platforms.android
         /// </summary>
         public static void Init()
         {
-            _allEffects = new List<PlatformEffect>(typeof(Initializator).Assembly.GetTypes()
+            _allEffects = new List<PlatformEffect>(typeof(AndroidInitializator).Assembly.GetTypes()
                 .Where(t => typeof(PlatformEffect).IsAssignableFrom(t))
                 .Select(t => (PlatformEffect) Activator.CreateInstance(t)));
         }

@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using SimpleImageButton.Droid;
 
 namespace SimpleImageButton.Sample.Droid
 {
@@ -17,7 +16,8 @@ namespace SimpleImageButton.Sample.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            Initializator.Init();
+            // Make this call to load the effect
+            SimpleImageButtonLib.SimpleImageButton.Initializator.Initializator.Init();
 
             LoadApplication(new App());
         }

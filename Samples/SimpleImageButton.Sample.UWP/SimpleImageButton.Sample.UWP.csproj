@@ -201,9 +201,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SimpleImageButton.UWP\SimpleImageButton.UWP.csproj">
-      <Project>{48e48a3e-693d-49c9-90b6-25f9a3fff385}</Project>
-      <Name>SimpleImageButton.UWP</Name>
+    <ProjectReference Include="..\..\src\lib\SimpleImageButtonLib\SimpleImageButtonLib.csproj">
+      <Project>{dc67550a-7557-469d-a0f8-c67b4125659d}</Project>
+      <Name>SimpleImageButtonLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj">
       <Project>{695f8122-ef0e-4663-be70-427cff8b2dc0}</Project>

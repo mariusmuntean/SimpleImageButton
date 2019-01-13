@@ -5,10 +5,10 @@ using System.Reflection;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform.UWP;
 
-namespace SimpleImageButton.UWP
+namespace SimpleImageButtonLib.Platforms.uwp
 {
     [Preserve(AllMembers = true)]
-    public static class Initializator
+    public static class UwpInitializator
     {
         private static List<PlatformEffect> _allEffects = new List<PlatformEffect>();
 
@@ -17,9 +17,9 @@ namespace SimpleImageButton.UWP
         /// </summary>
         public static void Init()
         {
-            _allEffects = new List<PlatformEffect>(typeof(Initializator).GetTypeInfo().Assembly.GetTypes()
+            _allEffects = new List<PlatformEffect>(typeof(UwpInitializator).GetTypeInfo().Assembly.GetTypes()
                 .Where(t => ReflectionExtensions.IsAssignableFrom(typeof(PlatformEffect), t))
-                .Select(t => (PlatformEffect) Activator.CreateInstance(t)));
+                .Select(t => (PlatformEffect)Activator.CreateInstance(t)));
         }
     }
 }

@@ -29,7 +29,7 @@ namespace SimpleImageButton.Sample.macOS
             Forms.Init();
 
             // Make this call to load the effect
-            SimpleImageButton.macOS.Initializator.Init();
+            SimpleImageButtonLib.SimpleImageButton.Initializator.Initializator.Init();
 
             LoadApplication(new App());
             base.DidFinishLaunching(notification);
