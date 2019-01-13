@@ -3,9 +3,37 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>
+    <!--<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>-->
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    
+    <AssemblyName>SimpleImageButtonLib</AssemblyName>
+    <RootNamespace>SimpleImageButtonLib</RootNamespace>
+    
+    <!-- NuGet Information -->
+    <PackageId>SimpleImageButtonLib</PackageId>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+    <Version>1.0.0.0</Version>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseUrl>https://github.com/mariusmuntean/SimpleImageButton/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mariusmuntean/SimpleImageButton</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mariusmuntean/SimpleImageButton</RepositoryUrl>
+    <PackageReleaseNotes>First release.
+      Currently supports iOS, macOS, Android and UWP. Tizen should be next.
+    </PackageReleaseNotes>
+    <PackageTags>xamarin xamarin.forms android ios uwp uap mac macOS osx button imagebutton plugin</PackageTags>
+    <Title>SimpleImageButton</Title>
+    <Summary>A simple image button for Xamarin.Forms. Has an image and a label and rounded corners.</Summary>
+    <Description>A simple image button for Xamarin.Forms. Has an image and a label and rounded corners.
+      Allows placing the label to the left/right or on top/bottom of the image.
+      The button is highly styleable - check out the samples and the demo gif.
+      Currently supports iOS,macOS, Android and UWP. Tizen should be next.</Description>
+    <Company>Marius Muntean</Company>
+    <Authors>Marius Muntean</Authors>
+    <Copyright>Copyright 2019</Copyright>
 
   </PropertyGroup>
 
@@ -14,7 +42,7 @@
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
     <Reference Include="netstandard" />
 
-    <!-- let all platforms access the code in SimpleImageButton -->
+    <!-- Let all platforms access the code in SimpleImageButton - notice the EnableDefaultCompileItems property -->
     <Compile Include="SimpleImageButton\**\*.cs" />
 
     <Compile Remove="Platforms\**\*.cs;Resources\**\*.cs" />
@@ -22,6 +50,19 @@
     <None Include="Platforms\**\*.cs" />
   </ItemGroup>
 
+  <!-- Configs -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DebugType>pdbonly</DebugType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  
+  <!-- Platform-specific code inclusion and compilation -->
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <Reference Remove="netstandard" />
     <Compile Include="Platforms\netstandard\**\*.cs" />
