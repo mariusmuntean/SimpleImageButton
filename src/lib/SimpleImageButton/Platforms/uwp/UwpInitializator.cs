@@ -13,7 +13,7 @@ namespace SimpleImageButton.Platforms.uwp
         private static List<PlatformEffect> _allEffects = new List<PlatformEffect>();
 
         /// <summary>
-        ///     This is needed to ensure macOS loads the assembly with the effects in it
+        ///     This is needed to ensure Windows loads the assembly with the effects in it
         /// </summary>
         public static void Init()
         {
