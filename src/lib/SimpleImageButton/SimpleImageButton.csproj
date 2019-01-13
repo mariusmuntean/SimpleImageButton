@@ -2,8 +2,8 @@
 <Project Sdk="MSBuild.Sdk.Extras/1.6.47">
 
   <PropertyGroup>
-    <!--<TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>-->
-    <TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>
+    <!--<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81</TargetFrameworks>-->
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -12,7 +12,7 @@
     <RootNamespace>SimpleImageButton</RootNamespace>
     
     <!-- NuGet Information -->
-    <PackageId>SimpleImageButtonLib</PackageId>
+    <PackageId>SimpleImageButton</PackageId>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
     <Version>1.0.0.0</Version>
