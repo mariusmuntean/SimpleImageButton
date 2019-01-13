@@ -1,4 +1,4 @@
-﻿namespace SimpleImageButtonLib.SimpleImageButton.Models
+﻿namespace SimpleImageButton.SimpleImageButton.Models
 {
     /// <summary>
     /// The image button's label location with respect to the image

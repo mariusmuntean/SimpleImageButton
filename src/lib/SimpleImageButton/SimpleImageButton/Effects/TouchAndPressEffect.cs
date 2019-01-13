@@ -1,6 +1,6 @@
 using Xamarin.Forms;
 
-namespace SimpleImageButtonLib.SimpleImageButton.Effects
+namespace SimpleImageButton.SimpleImageButton.Effects
 {
     public class TouchAndPressEffect : RoutingEffect
     {

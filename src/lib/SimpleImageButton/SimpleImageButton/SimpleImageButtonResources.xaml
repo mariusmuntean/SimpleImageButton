@@ -4,8 +4,8 @@
 
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                    xmlns:converters="clr-namespace:SimpleImageButtonLib.SimpleImageButton.Converters;assembly=SimpleImageButtonLib"
-                    x:Class="SimpleImageButtonLib.SimpleImageButton.SimpleImageButtonResources">
+                    xmlns:converters="clr-namespace:SimpleImageButton.SimpleImageButton.Converters;assembly=SimpleImageButton"
+                    x:Class="SimpleImageButton.SimpleImageButton.SimpleImageButtonResources">
     <!-- Style for the button layout -->
     <Style x:Key="SimpleImageButtonFrameStyle"
            TargetType="Frame">

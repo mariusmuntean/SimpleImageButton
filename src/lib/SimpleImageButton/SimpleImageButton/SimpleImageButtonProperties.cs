@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
-using SimpleImageButtonLib.SimpleImageButton.Models;
+using SimpleImageButton.SimpleImageButton.Models;
 using Xamarin.Forms;
 
-namespace SimpleImageButtonLib.SimpleImageButton
+namespace SimpleImageButton.SimpleImageButton
 {
     public partial class SimpleImageButton
     {

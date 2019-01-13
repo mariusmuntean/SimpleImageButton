@@ -1,19 +1,18 @@
-﻿using AppKit;
-using SimpleImageButtonLib.SimpleImageButton.Contracts;
-using SimpleImageButtonLib.SimpleImageButton.Effects;
+﻿using Foundation;
+using SimpleImageButton.SimpleImageButton.Contracts;
+using UIKit;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.MacOS;
+using Xamarin.Forms.Platform.iOS;
+using TouchAndPressEffect = SimpleImageButton.Platforms.ios.TouchAndPressEffect;
 
-using TouchAndPressEffect = SimpleImageButtonLib.Platforms.mac.TouchAndPressEffect;
-
-[assembly: ResolutionGroupName(SimpleImageButtonLib.SimpleImageButton.Effects.TouchAndPressEffect.EffectIdPrefix)]
+[assembly: ResolutionGroupName(SimpleImageButton.SimpleImageButton.Effects.TouchAndPressEffect.EffectIdPrefix)]
 [assembly: ExportEffect(typeof(TouchAndPressEffect), nameof(TouchAndPressEffect))]
 
-namespace SimpleImageButtonLib.Platforms.mac
+namespace SimpleImageButton.Platforms.ios
 {
     public class TouchAndPressEffect : PlatformEffect
     {
-        private NSView _view;
+        private UIView _view;
         private TouchAndPressGestureRecognizer _touchAndPressGestureRecognizer;
 
         protected override void OnAttached()
@@ -22,15 +21,10 @@ namespace SimpleImageButtonLib.Platforms.mac
 
             if (Element is ITouchAndPressEffectConsumer touchAndPressEffectConsumer)
             {
+                _view.UserInteractionEnabled = true;
+
                 _touchAndPressGestureRecognizer = new TouchAndPressGestureRecognizer(touchAndPressEffectConsumer);
                 _view.AddGestureRecognizer(_touchAndPressGestureRecognizer);
-            }
-
-            // Ensure the button scales with respect to its center - there seems to be a bug on macOS so this is necessary
-            if (Element is VisualElement visualElement)
-            {
-                visualElement.AnchorX = 1.0;
-                visualElement.AnchorY = 1.0;
             }
         }
 
@@ -42,7 +36,8 @@ namespace SimpleImageButtonLib.Platforms.mac
             }
         }
 
-        private class TouchAndPressGestureRecognizer : NSGestureRecognizer
+
+        private class TouchAndPressGestureRecognizer : UIGestureRecognizer
         {
             private readonly ITouchAndPressEffectConsumer _touchAndPressEffectConsumer;
 
@@ -51,33 +46,40 @@ namespace SimpleImageButtonLib.Platforms.mac
                 _touchAndPressEffectConsumer = touchAndPressEffectConsumer;
             }
 
-            public override void MouseDown(NSEvent mouseEvent)
+            public override void PressesBegan(NSSet<UIPress> presses, UIPressesEvent evt)
             {
-                base.MouseDown(mouseEvent);
+                base.PressesBegan(presses, evt);
                 _touchAndPressEffectConsumer.ConsumeEvent(EventType.Pressing);
             }
 
-            public override void MouseUp(NSEvent mouseEvent)
+            public override void TouchesBegan(NSSet touches, UIEvent evt)
             {
-                base.MouseUp(mouseEvent);
-                _touchAndPressEffectConsumer.ConsumeEvent(EventType.Released);
-            }
+                base.TouchesBegan(touches, evt);
 
-            public override void TouchesBegan(NSEvent touchEvent)
-            {
-                base.TouchesBegan(touchEvent);
                 _touchAndPressEffectConsumer.ConsumeEvent(EventType.Pressing);
             }
 
-            public override void TouchesEnded(NSEvent touchEvent)
+            public override void PressesEnded(NSSet<UIPress> presses, UIPressesEvent evt)
             {
-                base.TouchesEnded(touchEvent);
+                base.PressesEnded(presses, evt);
                 _touchAndPressEffectConsumer.ConsumeEvent(EventType.Released);
             }
 
-            public override void TouchesCancelled(NSEvent touchEvent)
+            public override void TouchesEnded(NSSet touches, UIEvent evt)
             {
-                base.TouchesCancelled(touchEvent);
+                base.TouchesEnded(touches, evt);
+                _touchAndPressEffectConsumer.ConsumeEvent(EventType.Released);
+            }
+
+            public override void PressesCancelled(NSSet<UIPress> presses, UIPressesEvent evt)
+            {
+                base.PressesCancelled(presses, evt);
+                _touchAndPressEffectConsumer.ConsumeEvent(EventType.Cancelled);
+            }
+
+            public override void TouchesCancelled(NSSet touches, UIEvent evt)
+            {
+                base.TouchesCancelled(touches, evt);
                 _touchAndPressEffectConsumer.ConsumeEvent(EventType.Cancelled);
             }
         }

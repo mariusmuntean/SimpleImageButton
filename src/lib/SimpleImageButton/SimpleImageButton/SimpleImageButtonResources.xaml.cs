@@ -1,7 +1,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SimpleImageButtonLib.SimpleImageButton
+namespace SimpleImageButton.SimpleImageButton
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SimpleImageButtonResources : ResourceDictionary

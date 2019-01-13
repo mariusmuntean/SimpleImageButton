@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace SimpleImageButtonLib.SimpleImageButton.Converters
+namespace SimpleImageButton.SimpleImageButton.Converters
 {
     public class ObjToVisibilityConverter : IValueConverter
     {

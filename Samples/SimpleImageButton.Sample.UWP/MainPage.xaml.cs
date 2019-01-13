@@ -13,7 +13,7 @@ namespace SimpleImageButton.Sample.UWP
             //this.InitializeComponent();
 
             // Make this call to load the effect
-            SimpleImageButtonLib.SimpleImageButton.Initializator.Initializator.Init();
+            SimpleImageButtonLib.Initializator.Initializator.Init();
 
             this.InitializeComponent();
             this.LoadApplication(new SimpleImageButton.Sample.App());

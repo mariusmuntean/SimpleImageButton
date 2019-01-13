@@ -1,4 +1,4 @@
-namespace SimpleImageButtonLib.SimpleImageButton.Contracts
+namespace SimpleImageButton.SimpleImageButton.Contracts
 {
     public interface ITouchAndPressEffectConsumer
     {

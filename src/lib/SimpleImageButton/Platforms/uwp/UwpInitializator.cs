@@ -5,7 +5,7 @@ using System.Reflection;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Platform.UWP;
 
-namespace SimpleImageButtonLib.Platforms.uwp
+namespace SimpleImageButton.Platforms.uwp
 {
     [Preserve(AllMembers = true)]
     public static class UwpInitializator

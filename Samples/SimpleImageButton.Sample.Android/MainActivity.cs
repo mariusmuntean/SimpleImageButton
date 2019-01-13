@@ -17,7 +17,7 @@ namespace SimpleImageButton.Sample.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             // Make this call to load the effect
-            SimpleImageButtonLib.SimpleImageButton.Initializator.Initializator.Init();
+            SimpleImageButton.Initializator.Initializator.Init();
 
             LoadApplication(new App());
         }

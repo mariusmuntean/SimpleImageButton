@@ -1,7 +1,7 @@
 using System;
 using Android.Views;
-using SimpleImageButtonLib.SimpleImageButton.Contracts;
-using SimpleImageButtonLib.SimpleImageButton.Effects;
+using SimpleImageButton.SimpleImageButton.Contracts;
+using SimpleImageButton.SimpleImageButton.Effects;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using View = Android.Views.View;

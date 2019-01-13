@@ -1,8 +1,8 @@
 ﻿using System;
-using SimpleImageButtonLib.SimpleImageButton.Contracts;
+using SimpleImageButton.SimpleImageButton.Contracts;
 using Xamarin.Forms;
 
-namespace SimpleImageButtonLib.SimpleImageButton
+namespace SimpleImageButton.SimpleImageButton
 {
     public partial class SimpleImageButton : ContentView, ITouchAndPressEffectConsumer
     {

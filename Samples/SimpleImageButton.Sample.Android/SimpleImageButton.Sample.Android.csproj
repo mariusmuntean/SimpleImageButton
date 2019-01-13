@@ -91,9 +91,9 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\lib\SimpleImageButtonLib\SimpleImageButtonLib.csproj">
+    <ProjectReference Include="..\..\src\lib\SimpleImageButton\SimpleImageButton.csproj">
       <Project>{dc67550a-7557-469d-a0f8-c67b4125659d}</Project>
-      <Name>SimpleImageButtonLib</Name>
+      <Name>SimpleImageButton</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj">
       <Project>{695F8122-EF0E-4663-BE70-427CFF8B2DC0}</Project>

@@ -4,7 +4,7 @@ using System.Linq;
 using Foundation;
 using Xamarin.Forms.Platform.MacOS;
 
-namespace SimpleImageButtonLib.Platforms.mac
+namespace SimpleImageButton.Platforms.mac
 {
     [Preserve(AllMembers = true)]
     public static class MacInitializator
