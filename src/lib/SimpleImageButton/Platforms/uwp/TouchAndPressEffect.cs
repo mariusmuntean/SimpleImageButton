@@ -1,12 +1,12 @@
-﻿using SimpleImageButtonLib.SimpleImageButton.Contracts;
-using SimpleImageButtonLib.SimpleImageButton.Effects;
+﻿using SimpleImageButton.SimpleImageButton.Contracts;
+using SimpleImageButton.SimpleImageButton.Effects;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 
 [assembly: ResolutionGroupName(TouchAndPressEffect.EffectIdPrefix)]
-[assembly: ExportEffect(typeof(SimpleImageButtonLib.Platforms.uwp.TouchAndPressEffect), nameof(SimpleImageButtonLib.Platforms.uwp.TouchAndPressEffect))]
+[assembly: ExportEffect(typeof(SimpleImageButton.Platforms.uwp.TouchAndPressEffect), nameof(SimpleImageButton.Platforms.uwp.TouchAndPressEffect))]
 
 namespace SimpleImageButton.Platforms.uwp
 {

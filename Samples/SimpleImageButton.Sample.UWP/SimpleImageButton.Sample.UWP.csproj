@@ -201,9 +201,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\lib\SimpleImageButtonLib\SimpleImageButtonLib.csproj">
+    <ProjectReference Include="..\..\src\lib\SimpleImageButton\SimpleImageButton.csproj">
       <Project>{dc67550a-7557-469d-a0f8-c67b4125659d}</Project>
-      <Name>SimpleImageButtonLib</Name>
+      <Name>SimpleImageButton</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj">
       <Project>{695f8122-ef0e-4663-be70-427cff8b2dc0}</Project>
