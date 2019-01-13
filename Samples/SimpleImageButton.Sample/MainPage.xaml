@@ -394,8 +394,7 @@
                 <StackLayout Orientation="Horizontal">
                     <ImageButton Source="{x:StaticResource XamarinImage}" 
                                  HeightRequest="25" 
-                                 HorizontalOptions="Center"
-                                 VerticalOptions="Center"/>
+                                 WidthRequest="25"/>
                     <Button Image="{x:StaticResource XamarinImage}"
                             Text="NativeButton"
                             x:Name="NormalButton"
