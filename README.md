@@ -58,4 +58,4 @@ Because at this point I already decided to share the code as a NuGet package the
 SDK Style and Multi-Targeted project to the rescue: long story short this is now a multi-target project, making your life easier and mine significantly more complex. The things I do for you :D
 
 ## Here's the sample project showing off the SimpleImageButton
-![Sample](samples/images/SimpleImageButton_SamplesDemo5.gif)
+![Sample](Samples/images/SimpleImageButton_SamplesDemo5.gif)
