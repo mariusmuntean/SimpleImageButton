@@ -46,6 +46,25 @@ Grab the NuGet package from: https://www.nuget.org/packages/SimpleImageButton/
     ```
     </details>
 
+## Prerequisites to compile the library
+
+<details>
+<summary>Compile on Windows</summary>
+If you use Windows as your development OS then you're in luck because you can pretty much build everything, without modifying the code.
+
+In the Visual Studio Installer ensure that you have the following workloads checked:
+* .Net desktop development
+* Universal Windows Platform development
+* Mobile development with .Net
+* .NET Core cross-platform development
+
+Also in the Visual Studio Installer, switch to the Individual Components tab and scroll to the bottm. Check the 4 entries for Windows 10 SDK (10.0.16299). 
+
+Hint: If you modify the SimpleImageButton.csproj to reference another version of UAP than 10.0.16299 then you would probably need to also come back to the Visual Studio Installer and check that specific version.
+
+That's it!
+</details>
+
 
 ## Fun fact
 I built this for myself, thinking I could whip something together in 10 minutes and make a button out of it using the VisualStateManager. 

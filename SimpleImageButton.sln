@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton.Sample.UW
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{1B08709E-FBB4-47A5-9CD5-6FD01F8DBD78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleImageButton", "src\lib\SimpleImageButton\SimpleImageButton.csproj", "{DC67550A-7557-469D-A0F8-C67B4125659D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleImageButton", "src\lib\SimpleImageButton\SimpleImageButton.csproj", "{DC67550A-7557-469D-A0F8-C67B4125659D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
