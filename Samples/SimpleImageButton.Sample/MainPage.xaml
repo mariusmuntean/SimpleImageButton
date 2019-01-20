@@ -30,6 +30,8 @@
                     Value="xamarin_white.png" />
                 <On Platform="UWP"
                     Value="Assets/whiteXamarin.png" />
+                <On Platform="Tizen"
+                    Value="xamarin_white.png" />
             </OnPlatform>
             <OnPlatform x:Key="Isaac"
                         x:TypeArguments="ImageSource">
@@ -41,6 +43,8 @@
                     Value="isaac.png" />
                 <On Platform="UWP"
                     Value="Assets/isaac.png" />
+                <On Platform="Tizen"
+                    Value="isaac.png" />
             </OnPlatform>
             <OnPlatform x:Key="BlueXamarinImage"
                         x:TypeArguments="ImageSource">
@@ -52,6 +56,8 @@
                     Value="icon.png" />
                 <On Platform="UWP"
                     Value="Assets/appIcon.png" />
+                <On Platform="Tizen"
+                    Value="appIcon.png" />
             </OnPlatform>
             <Style x:Key="AdvancedLabelStyle"
                    TargetType="Label"

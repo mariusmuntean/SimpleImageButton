@@ -9,6 +9,8 @@ namespace SimpleImageButton.Tizen
         {
             base.OnCreate();
 
+            SimpleImageButton.Initializator.Initializator.Init();
+            
             LoadApplication(new Sample.App());
         }
 

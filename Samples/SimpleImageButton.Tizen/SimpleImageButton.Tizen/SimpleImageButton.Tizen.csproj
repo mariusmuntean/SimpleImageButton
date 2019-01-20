@@ -32,5 +32,19 @@
     <ProjectReference Include="..\..\..\src\lib\SimpleImageButton\SimpleImageButton.csproj" />
     <ProjectReference Include="..\..\SimpleImageButton.Sample\SimpleImageButton.Sample.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="res\icon.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="res\isaac.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+    <AndroidResource Include="res\xamarin_white.png">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
 
 </Project>

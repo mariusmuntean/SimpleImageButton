@@ -13,6 +13,10 @@
             Platforms.android.AndroidInitializator.Init();
 #endif
 
+#if __TIZEN__
+            Platforms.tizen.TizenInitializator.Init();
+#endif
+
 #if UAP10_0_16299 || UAP10_0_16299_0 || WINDOWS_UWP
             Platforms.uwp.UwpInitializator.Init();
 #endif
