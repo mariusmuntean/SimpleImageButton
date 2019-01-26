@@ -1,19 +1,29 @@
-﻿namespace SimpleImageButton.SimpleImageButton.Initializator
+﻿using SimpleImageButton;
+using System;
+
+#if TIZEN || TIZEN50 || TIZEN40
+using Tizen;
+#endif
+
+namespace SimpleImageButton.SimpleImageButton.Initializator
 {
-    public static partial class Initializator
+    public static class Initializator
     {
         public static void Init()
         {
+            Console.WriteLine("Initializing SimpleImageButton Platform Effects");
 #if NETSTANDARD2_0 || NETSTANDARD
             // ReSharper disable once RedundantNameQualifier
-            System.Console.WriteLine($"{nameof(SimpleImageButton)}- No need to call init");
+            Console.WriteLine($"{nameof(SimpleImageButton)}- No need to call init");
 #endif
 
 #if __ANDROID__
             Platforms.android.AndroidInitializator.Init();
 #endif
 
-#if __TIZEN__
+#if TIZEN || TIZEN50 || TIZEN40
+            Console.WriteLine("Initializing TIZEn Platform Effect");
+            Log.Info("MM", "Initializing TIZEn Platform Effect");
             Platforms.tizen.TizenInitializator.Init();
 #endif
 

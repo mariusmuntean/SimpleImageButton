@@ -1,7 +1,8 @@
 using System;
-using SimpleImageButton;
+using SimpleImageButton.Sample;
+using SimpleImageButton.SimpleImageButton.Initializator;
 
-namespace SimpleImageButton.Tizen
+namespace de.marius.SimpleImageButton.Tizen
 {
     class Program : global::Xamarin.Forms.Platform.Tizen.FormsApplication
     {
@@ -9,9 +10,10 @@ namespace SimpleImageButton.Tizen
         {
             base.OnCreate();
 
-            SimpleImageButton.Initializator.Initializator.Init();
-            
-            LoadApplication(new Sample.App());
+            Console.WriteLine("About to initialize SimpleImageButton");
+            Initializator.Init();
+
+            LoadApplication(new App());
         }
 
         static void Main(string[] args)
