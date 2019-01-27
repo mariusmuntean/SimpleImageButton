@@ -1,11 +1,10 @@
 using ElmSharp;
 using SimpleImageButton.SimpleImageButton.Contracts;
-using SimpleImageButton.SimpleImageButton.Effects;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Tizen;
 
-[assembly: ResolutionGroupName(TouchAndPressEffect.EffectIdPrefix)]
+[assembly: ResolutionGroupName(SimpleImageButton.SimpleImageButton.Effects.TouchAndPressEffect.EffectIdPrefix)]
 [assembly: ExportEffect(typeof(SimpleImageButton.Platforms.tizen.TouchAndPressEffect), nameof(SimpleImageButton.Platforms.tizen.TouchAndPressEffect))]
 namespace SimpleImageButton.Platforms.tizen
 {
