@@ -46,6 +46,20 @@ Grab the NuGet package from: https://www.nuget.org/packages/SimpleImageButton/
     ```
     </details>
 
+      <details>
+    <summary>Init on Tizen</summary>
+    In your main class, usually the one that inherits from FormsApplication, in the OnCreate() method add a call to Initializator.Init():
+
+    ```csharp
+    Initializator.Init();
+    ```
+    </details>
+
+### Tizen Note: 
+Tizen seems to be supported partially. For this reason the button doesn't look quite as nce as on the other platforms. I'll try to compensate as much as possible.
+
+Link to limitations: https://developer.tizen.org/development/api-reference/.net-application/current-xamarin.forms-limitations
+
 ## Prerequisites to compile the library
 
 <details>

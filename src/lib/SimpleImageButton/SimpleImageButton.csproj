@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81;Tizen50</TargetFrameworks>
-    <TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;MonoAndroid81;Tizen50</TargetFrameworks>
+    <!--<TargetFrameworks>netstandard2.0;uap10.0.16299;Xamarin.iOS10;MonoAndroid81;Tizen50</TargetFrameworks>-->
     <!--<TargetFrameworks>netstandard2.0;Xamarin.iOS10;Xamarin.Mac20;MonoAndroid81;Tizen50</TargetFrameworks>-->
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -14,16 +14,17 @@
     
     <!-- NuGet Information -->
     <PackageId>SimpleImageButton</PackageId>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <AssemblyFileVersion>1.0.2.0</AssemblyFileVersion>
-    <Version>1.0.2.0</Version>
-    <PackageVersion>1.0.2.0</PackageVersion>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.3.0</AssemblyFileVersion>
+    <Version>1.0.3.0</Version>
+    <PackageVersion>1.0.3.0</PackageVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageLicenseUrl>https://github.com/mariusmuntean/SimpleImageButton/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mariusmuntean/SimpleImageButton</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mariusmuntean/SimpleImageButton</RepositoryUrl>
-    <PackageReleaseNotes>First release.
-      Currently supports iOS, macOS, Android and UWP. Tizen should be next.
+    <PackageReleaseNotes>1.0.3.0 released!.
+      Added support for Tizen 5. Please be aware of these limitations: https://developer.tizen.org/development/api-reference/.net-application/current-xamarin.forms-limitations
+      Currently supports iOS, macOS, Android, UWP and Tizen.
     </PackageReleaseNotes>
     <PackageTags>xamarin xamarin.forms android ios uwp uap mac macOS osx button imagebutton plugin</PackageTags>
     <Title>SimpleImageButton</Title>
@@ -31,7 +32,8 @@
     <Description>A simple image button for Xamarin.Forms. Has an image and a label and rounded corners.
       Allows placing the label to the left/right or on top/bottom of the image.
       The button is highly styleable - check out the samples and the demo gif.
-      Currently supports iOS,macOS, Android and UWP. Tizen should be next.</Description>
+
+      Currently supports iOS, macOS, Android, UWP and Tizen.</Description>
     <Company>Marius Muntean</Company>
     <Authors>Marius Muntean</Authors>
     <Copyright>Copyright 2019</Copyright>
@@ -41,7 +43,7 @@
   <ItemGroup>
     <!--<PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.1" PrivateAssets="all" />-->
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1029999" />
-    <!--<Reference Include="netstandard" />-->
+    <Reference Include="netstandard" />
 
     <!-- Let all platforms access the code in SimpleImageButton - notice the EnableDefaultCompileItems property -->
     <Compile Include="SimpleImageButton\**\*.cs" />
